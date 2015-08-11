@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
+#import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "User.h"
 
-@interface ViewController ()
+@interface LoginViewController ()
 
 @property NSManagedObjectContext *moc;
 @property NSArray *users;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation ViewController
+@implementation LoginViewController
 
 // Quick change.
 // Another change.
