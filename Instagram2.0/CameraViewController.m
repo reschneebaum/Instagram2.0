@@ -17,6 +17,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *takePictureButton;
 @property (weak, nonatomic) IBOutlet UIButton *libraryButton;
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *xbutton;
+@property (weak, nonatomic) IBOutlet UIButton *gridButton;
+@property (weak, nonatomic) IBOutlet UIButton *rotateCameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *flashLightButton;
 @property UIColor *UIColor;
 @end
 
