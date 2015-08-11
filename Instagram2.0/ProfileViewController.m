@@ -6,10 +6,18 @@
 //  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "ProfileViewController.h"
 #import "User.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@property (weak, nonatomic) IBOutlet UIImageView *profilePictureImageView;
+@property (weak, nonatomic) IBOutlet UICollectionView *profileCollectionView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UIButton *photosButton;
+@property (weak, nonatomic) IBOutlet UIButton *friendsButton;
 
 @end
 
@@ -24,5 +32,33 @@
     NSLog(@"%@", self.user.lastName);
 }
 
+
+
+#pragma mark - UICollectionView data source methods
+#pragma mark -
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCellID" forIndexPath:indexPath];
+    // note: will replace with custom cell
+    return cell;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 1;
+}
+
+
+#pragma mark - space for IBActions in case needed
+
+- (IBAction)onEditButtonPressed:(UIButton *)sender {
+}
+- (IBAction)onDoneButtonPressed:(UIButton *)sender {
+}
+
+- (IBAction)onPhotosButtonPressed:(UIButton *)sender {
+}
+
+- (IBAction)onFriendsButtonPressed:(UIButton *)sender {
+}
 
 @end
