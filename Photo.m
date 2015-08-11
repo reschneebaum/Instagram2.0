@@ -7,7 +7,7 @@
 //
 
 #import "Photo.h"
-#import "NSManagedObject.h"
+#import "Friend.h"
 #import "User.h"
 
 
@@ -16,6 +16,8 @@
 @dynamic urlString;
 @dynamic name;
 @dynamic likesNumber;
+@dynamic username;
+@dynamic whenTaken;
 @dynamic userPhotos;
 @dynamic friendPhotos;
 

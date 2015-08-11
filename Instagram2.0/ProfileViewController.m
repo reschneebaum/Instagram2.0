@@ -39,6 +39,13 @@
     self.photos = [NSArray new];
 }
 
+-(void)loadOwnPhotos {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+    NSSortDescriptor *userSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:true];
+    request.sortDescriptors = @[userSortDescriptor];
+    self.users = [self.moc executeFetchRequest:request error:nil];
+    NSLog(@"%@, %@", [self.users valueForKey:@"username"], [self.users valueForKey:@"password"]);
+}
 
 
 #pragma mark - UICollectionView data source methods

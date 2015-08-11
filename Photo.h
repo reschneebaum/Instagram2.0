@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NSManagedObject, User;
+@class Friend, User;
 
 @interface Photo : NSManagedObject
 
 @property (nonatomic, retain) NSString * urlString;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * likesNumber;
+@property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSString * whenTaken;
 @property (nonatomic, retain) User *userPhotos;
-@property (nonatomic, retain) NSManagedObject *friendPhotos;
+@property (nonatomic, retain) Friend *friendPhotos;
 
 @end
