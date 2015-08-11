@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "User.h"
 
 @interface ProfileViewController ()
 
@@ -16,22 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSLog(@"%@", self.users.firstObject);
+    NSLog(@"%@", self.user.username);
+    NSLog(@"%@", self.user.password);
+    NSLog(@"%@", self.user.firstName);
+    NSLog(@"%@", self.user.lastName);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

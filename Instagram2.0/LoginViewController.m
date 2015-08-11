@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginViewController.h"
+#import "ProfileViewController.h"
 #import "AppDelegate.h"
 #import "User.h"
 
@@ -32,6 +33,8 @@
     [self loadUsers];
 
     self.passwordTextField.secureTextEntry = true;
+    self.usernameTextField.text = @"user2";
+    self.passwordTextField.text = @"test2";
 }
 
 -(void)loadUsers {
@@ -52,6 +55,7 @@
 
     if (self.areUsers == true) {
         NSLog(@"go to profile page!");
+        [self performSegueWithIdentifier:@"loginSegue" sender:self];
     } else {
         NSLog(@"go to signup page!");
         // note: create a helper method that returns nothing & takes UIAlertController as parameter
@@ -128,6 +132,13 @@
     [createAccountAlert addAction:addAction];
     [createAccountAlert addAction:cancelAction];
     [self presentViewController:createAccountAlert animated:true completion:nil];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ProfileViewController *profileVC = segue.destinationViewController;
+    profileVC.moc = self.moc;
+    profileVC.user = self.user;
+    profileVC.users = self.users;
 }
 
 @end
