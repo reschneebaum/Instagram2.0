@@ -236,6 +236,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bYd-70-8Tu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KB9-fq-Cw0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-h1-e9R">
@@ -285,6 +286,7 @@
                         <viewControllerLayoutGuide type="bottom" id="yaN-IX-5iI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JsK-3x-qja">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -302,6 +304,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hB6-6d-qGL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qoG-TN-k5D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Upa-cg-qqa">
@@ -422,6 +425,7 @@
                         <viewControllerLayoutGuide type="bottom" id="01n-rh-lJy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WHi-Nn-hoU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="abP-jx-nrP">
