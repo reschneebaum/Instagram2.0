@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property BOOL areUsers;
+@property User *user;
 
 @end
 
@@ -43,21 +44,9 @@
 
 - (IBAction)onLoginButtonPressed:(UIButton *)sender {
     for (User *user in self.users) {
-        NSLog(@"for loop starting");
-        while (!([user.username isEqualToString:self.usernameTextField.text] && [user.password isEqualToString:self.passwordTextField.text])) {
-            self.areUsers = false;
-            NSLog(@"while loop starting");
-
-            if (user == self.users.lastObject) {
-                break;
-            }
-
-            if ((user == self.users.lastObject) || ([user.username isEqualToString:self.usernameTextField.text] && [user.password isEqualToString:self.passwordTextField.text]))
-                continue;
-        }
-        NSLog(@"while loop finished");
         if ([user.username isEqualToString:self.usernameTextField.text] && [user.password isEqualToString:self.passwordTextField.text]) {
             self.areUsers = true;
+            self.user = user;
         }
     }
 
