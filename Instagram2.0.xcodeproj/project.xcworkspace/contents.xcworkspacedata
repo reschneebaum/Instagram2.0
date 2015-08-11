@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../User.h">
+   </FileRef>
+   <FileRef
+      location = "group:../User.m">
+   </FileRef>
+   <FileRef
       location = "self:Instagram2.0.xcodeproj">
    </FileRef>
 </Workspace>

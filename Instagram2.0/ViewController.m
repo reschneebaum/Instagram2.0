@@ -7,8 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
+#import "User.h"
 
 @interface ViewController ()
+
+@property NSManagedObjectContext *moc;
+@property NSArray *users;
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @end
 
@@ -16,12 +23,101 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    self.moc = delegate.managedObjectContext;
+    [self loadUsers];
+
+    self.passwordTextField.secureTextEntry = true;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)loadUsers {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    NSSortDescriptor *userSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:true];
+    request.sortDescriptors = @[userSortDescriptor];
+    self.users = [self.moc executeFetchRequest:request error:nil];
+    NSLog(@"%@, %@", [self.users valueForKey:@"username"], [self.users valueForKey:@"password"]);
 }
+
+- (IBAction)onLoginButtonPressed:(UIButton *)sender {
+    if (self.users.count > 0) {
+        for (User *user in self.users) {
+            if ([user.username isEqualToString:self.usernameTextField.text] && [user.password isEqualToString:self.passwordTextField.text]) {
+                NSLog(@"go to profile page!");
+            } else {
+                NSLog(@"go to signup page!");
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Signup!" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                    textField.placeholder = @"First Name";
+                }];
+                [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                    textField.placeholder = @"Last Name";
+                }];
+                [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                    textField.placeholder = @"Username";
+                }];
+                [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                    textField.placeholder = @"Password";
+                    textField.secureTextEntry = true;
+                }];
+                UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    UITextField *firstNameTextField = ((UITextField *)[alertController.textFields objectAtIndex:0]);
+                    UITextField *lastNameTextField = ((UITextField *)[alertController.textFields objectAtIndex:1]);
+                    UITextField *usernameTextField = ((UITextField *)[alertController.textFields objectAtIndex:2]);
+                    UITextField *passwordTextField = ((UITextField *)[alertController.textFields objectAtIndex:3]);
+                    NSManagedObject *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.moc];
+                    [user setValue:firstNameTextField.text forKey:@"firstName"];
+                    [user setValue:lastNameTextField.text forKey:@"lastName"];
+                    [user setValue:usernameTextField.text forKey:@"username"];
+                    [user setValue:passwordTextField.text forKey:@"password"];
+                    [self.moc save:nil];
+                    [self loadUsers];
+                }];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                    
+                }];
+                [alertController addAction:addAction];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:true completion:nil];
+            }
+        }
+    } else {
+        NSLog(@"go to signup page!");
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Create a new account" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"First Name";
+        }];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"Last Name";
+        }];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"Username";
+        }];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"Password";
+            textField.secureTextEntry = true;
+        }];
+        UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            UITextField *firstNameTextField = ((UITextField *)[alertController.textFields objectAtIndex:0]);
+            UITextField *lastNameTextField = ((UITextField *)[alertController.textFields objectAtIndex:1]);
+            UITextField *usernameTextField = ((UITextField *)[alertController.textFields objectAtIndex:2]);
+            UITextField *passwordTextField = ((UITextField *)[alertController.textFields objectAtIndex:3]);
+            NSManagedObject *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.moc];
+            [user setValue:firstNameTextField.text forKey:@"firstName"];
+            [user setValue:lastNameTextField.text forKey:@"lastName"];
+            [user setValue:usernameTextField.text forKey:@"username"];
+            [user setValue:passwordTextField.text forKey:@"password"];
+            [self.moc save:nil];
+            [self loadUsers];
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+
+        }];
+        [alertController addAction:addAction];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:true completion:nil];
+    }
+}
+
 
 @end

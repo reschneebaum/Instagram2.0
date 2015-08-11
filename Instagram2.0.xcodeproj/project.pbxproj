@@ -15,6 +15,7 @@
 		C403444A1B794477000383DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C40344491B794477000383DB /* Images.xcassets */; };
 		C403444D1B794477000383DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403444B1B794477000383DB /* LaunchScreen.xib */; };
 		C40344591B794477000383DB /* Instagram2_0Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344581B794477000383DB /* Instagram2_0Tests.m */; };
+		C40344641B794A22000383DB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344631B794A22000383DB /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		C40344521B794477000383DB /* Instagram2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Instagram2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40344571B794477000383DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40344581B794477000383DB /* Instagram2_0Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Instagram2_0Tests.m; sourceTree = "<group>"; };
+		C40344621B794A22000383DB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C40344631B794A22000383DB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,7 @@
 				C40344491B794477000383DB /* Images.xcassets */,
 				C403444B1B794477000383DB /* LaunchScreen.xib */,
 				C40344401B794477000383DB /* Instagram2_0.xcdatamodeld */,
+				C40344651B794A2F000383DB /* Model Objects */,
 				C40344391B794477000383DB /* Supporting Files */,
 			);
 			path = Instagram2.0;
@@ -120,6 +124,15 @@
 				C40344571B794477000383DB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C40344651B794A2F000383DB /* Model Objects */ = {
+			isa = PBXGroup;
+			children = (
+				C40344621B794A22000383DB /* User.h */,
+				C40344631B794A22000383DB /* User.m */,
+			);
+			name = "Model Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C40344641B794A22000383DB /* User.m in Sources */,
 				C40344421B794477000383DB /* Instagram2_0.xcdatamodeld in Sources */,
 				C403443F1B794477000383DB /* AppDelegate.m in Sources */,
 				C40344451B794477000383DB /* ViewController.m in Sources */,
