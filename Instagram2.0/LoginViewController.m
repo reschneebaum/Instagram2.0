@@ -135,10 +135,13 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ProfileViewController *profileVC = segue.destinationViewController;
-    profileVC.moc = self.moc;
-    profileVC.user = self.user;
-    profileVC.users = self.users;
+
+    if ([segue.identifier isEqualToString:@"profileSegue"]) {
+        ProfileViewController *profileVC = segue.destinationViewController;
+//      profileVC.moc = self.moc;
+        profileVC.user = self.user;
+        profileVC.users = self.users;
+    }
 }
 
 @end

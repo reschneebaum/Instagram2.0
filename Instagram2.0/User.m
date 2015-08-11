@@ -2,11 +2,13 @@
 //  User.m
 //  
 //
-//  Created by Rachel Schneebaum on 8/10/15.
+//  Created by Rachel Schneebaum on 8/11/15.
 //
 //
 
 #import "User.h"
+#import "NSManagedObject.h"
+#import "Photo.h"
 
 
 @implementation User
@@ -15,5 +17,8 @@
 @dynamic lastName;
 @dynamic username;
 @dynamic password;
+@dynamic textDescription;
+@dynamic userPhotos;
+@dynamic friends;
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 #import "ProfileViewController.h"
 #import "User.h"
+#import "Photo.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureImageView;
@@ -18,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *photosButton;
 @property (weak, nonatomic) IBOutlet UIButton *friendsButton;
+@property NSArray *photos;
 
 @end
 
@@ -30,6 +33,10 @@
     NSLog(@"%@", self.user.password);
     NSLog(@"%@", self.user.firstName);
     NSLog(@"%@", self.user.lastName);
+
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    self.moc = delegate.managedObjectContext;
+    self.photos = [NSArray new];
 }
 
 
@@ -52,6 +59,7 @@
 
 - (IBAction)onEditButtonPressed:(UIButton *)sender {
 }
+
 - (IBAction)onDoneButtonPressed:(UIButton *)sender {
 }
 
