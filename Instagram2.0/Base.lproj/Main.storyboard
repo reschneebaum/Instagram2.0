@@ -300,6 +300,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CTU-wq-ZUv"/>
+                    <connections>
+                        <outlet property="deleteButton" destination="6jx-sM-Tbn" id="8ij-Vt-XX0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fH9-wF-dHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,6 +9,7 @@
 #import "DetailProfileImageViewController.h"
 
 @interface DetailProfileImageViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @end
 
