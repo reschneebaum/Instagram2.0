@@ -18,7 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
-//- (IBAction)onCreateAccountButtonPressed:(UIButton *)sender {
-//   UIAlertView *alertViewText = [[UIAlertView alloc] initWithTitle:<#(NSString *)#> message:<#(NSString *)#> delegate:<#(id)#> cancelButtonTitle:<#(NSString *)#> otherButtonTitles:<#(NSString *), ...#>, nil}
-//    
+- (IBAction)onCreateAccountButtonPressed:(UIButton *)sender {
+   UIAlertView *alertViewText = [[UIAlertView alloc]
+                                 initWithTitle:@"Are Your Sure You Want to Delete This Image?"
+                                 message:alertViewText delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:Delete  , nil
+
+    
 @end
