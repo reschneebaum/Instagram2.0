@@ -50,7 +50,9 @@
 }
 
 -(void)setUserInformation {
-    
+    // add profile pic property
+//    self.profilePictureImageView = self.user.profilePicture;
+//    self.nameLabel.text = [NSString stringWithFormat:<#(NSString *), ...#>]
 }
 
 
