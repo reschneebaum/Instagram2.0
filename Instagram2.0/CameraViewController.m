@@ -6,7 +6,10 @@
 //  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "CameraViewController.h"
+#import "Photo.h"
+#import "User.h"
 
 @interface CameraViewController ()
 @property UIImagePickerController *picker;
@@ -22,9 +25,43 @@
 @property (weak, nonatomic) IBOutlet UIButton *rotateCameraButton;
 @property (weak, nonatomic) IBOutlet UIButton *flashLightButton;
 @property UIColor *UIColor;
+@property NSManagedObjectContext *moc;
+@property Photo *photo;
+@property BOOL *arePhotos;
+
 @end
 
 @implementation CameraViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    self.moc = delegate.managedObjectContext;
+}
+
+-(void)checkForAndLoadPhotos {
+    NSFetchRequest *photosRequest = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+    photosRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos CONTAINS %@", self.user];
+    NSSortDescriptor *userPhotosSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"username" ascending:true];
+    photosRequest.sortDescriptors = @[userPhotosSortDescriptor];
+    self.photos = [self.moc executeFetchRequest:photosRequest error:nil];
+    if (self.photos.count == 0) {
+        NSLog(@"no photos in array");
+        self.arePhotos = false;
+    }
+}
+
+-(void)storePhoto:(Photo *)photo withFileName:(NSString *)fileName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *libraryDirectory = [paths objectAtIndex:0];
+    NSString *path = [libraryDirectory stringByAppendingPathComponent:fileName];
+    NSData *imageData = UIImagePNGRepresentation(self.image);
+    [imageData writeToFile:path atomically:YES];
+    photo.name = fileName;
+    self.photo = photo;
+    [self.photo setValue:fileName forKey:@"name"];
+}
 
 - (IBAction)TakePhoto {
     self.picker =[[UIImagePickerController alloc] init];
@@ -34,6 +71,7 @@
      picker animated:YES completion:NULL];
     //    [self.picker release];
 }
+
 - (IBAction)ChooseExisting {
     _picker2 =[[UIImagePickerController alloc] init];
     self.picker2.delegate = self;
@@ -45,16 +83,20 @@
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self.imageView setImage:self.image];
+
+//    instantiate instance of photo class and assign value to property, then pass into the following:
+//    [self storePhoto:photo withFileName:photo.urlString];
+    
+    [self.moc save:nil];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
- 
-}
+
 - (IBAction)onDoneButtonPressed:(UIButton *)sender {
+
 }
+
 @end

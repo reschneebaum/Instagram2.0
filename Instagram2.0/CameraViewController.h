@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property User *user;
+@property NSArray *photos;
 
 - (IBAction)TakePhoto;
 - (IBAction)ChooseExisting;
