@@ -49,8 +49,6 @@
 		C40344521B794477000383DB /* Instagram2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Instagram2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40344571B794477000383DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40344581B794477000383DB /* Instagram2_0Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Instagram2_0Tests.m; sourceTree = "<group>"; };
-		C40344621B794A22000383DB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		C40344631B794A22000383DB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		C40344971B7A6338000383DB /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		C40344981B7A6338000383DB /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		C403449A1B7A6347000383DB /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
@@ -159,8 +157,12 @@
 		C40344651B794A2F000383DB /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
-				C40344621B794A22000383DB /* User.h */,
-				C40344631B794A22000383DB /* User.m */,
+				C40344A61B7A95C0000383DB /* Friend.h */,
+				C40344A71B7A95C0000383DB /* Friend.m */,
+				C40344A81B7A95C0000383DB /* User.h */,
+				C40344A91B7A95C0000383DB /* User.m */,
+				C40344AA1B7A95C0000383DB /* Photo.h */,
+				C40344AB1B7A95C0000383DB /* Photo.m */,
 			);
 			name = "Model Objects";
 			sourceTree = "<group>";
@@ -268,10 +270,12 @@
 				FD8133BF1B7A944300E48BCE /* DetailProfileImageViewController.m in Sources */,
 				C40344641B794A22000383DB /* User.m in Sources */,
 				C403449F1B7A6350000383DB /* CameraViewController.m in Sources */,
+				C40344AC1B7A95C0000383DB /* Friend.m in Sources */,
 				C403449C1B7A6347000383DB /* NewsFeedViewController.m in Sources */,
 				C40344421B794477000383DB /* Instagram2_0.xcdatamodeld in Sources */,
 				C40344A21B7A635A000383DB /* SearchViewController.m in Sources */,
 				C403443F1B794477000383DB /* AppDelegate.m in Sources */,
+				C40344AD1B7A95C0000383DB /* User.m in Sources */,
 				C40344451B794477000383DB /* LoginViewController.m in Sources */,
 				C40344991B7A6338000383DB /* ProfileViewController.m in Sources */,
 				C40344A51B7A636E000383DB /* FriendProfileViewController.m in Sources */,
