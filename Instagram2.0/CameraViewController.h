@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CameraViewController : UIViewController
+@interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+- (IBAction)TakePhoto;
+- (IBAction)ChooseExisting;
+
 
 @end

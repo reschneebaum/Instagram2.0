@@ -9,29 +9,46 @@
 #import "CameraViewController.h"
 
 @interface CameraViewController ()
-
+@property UIImagePickerController *picker;
+@property UIImagePickerController *picker2;
+@property UIImage *image;
+@property IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *barbuttonbackground;
+@property (weak, nonatomic) IBOutlet UIButton *takePictureButton;
+@property (weak, nonatomic) IBOutlet UIButton *libraryButton;
+@property (weak, nonatomic) IBOutlet UIButton *cameraButton;
+@property UIColor *UIColor;
 @end
 
 @implementation CameraViewController
 
+- (IBAction)TakePhoto {
+    self.picker =[[UIImagePickerController alloc] init];
+    self.picker.delegate = self;
+    [self.picker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    [self presentViewController:self.
+     picker animated:YES completion:NULL];
+    //    [self.picker release];
+}
+- (IBAction)ChooseExisting {
+    _picker2 =[[UIImagePickerController alloc] init];
+    self.picker2.delegate = self;
+    [self.picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentViewController:self.picker2 animated:YES completion:NULL];
+    //    [picker2 release];
+}
+
+-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self.imageView setImage:self.image];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+-(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+ 
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

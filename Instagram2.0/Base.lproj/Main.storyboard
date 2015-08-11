@@ -288,8 +288,66 @@
                     <view key="view" contentMode="scaleToFill" id="JsK-3x-qja">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rnE-tG-5cW">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="tintColor" red="0.14901960784313725" green="0.15294117647058825" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-2" y="451" width="405" height="149"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwZ-QN-GJH">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="librabybutton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="50" y="513" width="56" height="46"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YM8-LY-cjH">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="videoButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="306" y="513" width="87" height="64"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdN-mI-faq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="camerabutton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="149" y="472" width="117" height="108"/>
+                                </variation>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="rnE-tG-5cW"/>
+                                <exclude reference="rwZ-QN-GJH"/>
+                                <exclude reference="YM8-LY-cjH"/>
+                                <exclude reference="fdN-mI-faq"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="rnE-tG-5cW"/>
+                                <include reference="rwZ-QN-GJH"/>
+                                <include reference="YM8-LY-cjH"/>
+                                <include reference="fdN-mI-faq"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="barbuttonbackground" destination="rnE-tG-5cW" id="FeK-1B-Vek"/>
+                        <outlet property="cameraButton" destination="YM8-LY-cjH" id="lL1-WT-Njw"/>
+                        <outlet property="libraryButton" destination="rwZ-QN-GJH" id="sDb-6X-EgT"/>
+                        <outlet property="takePictureButton" destination="fdN-mI-faq" id="RtJ-eg-yaP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0G-Lp-trh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -561,4 +619,9 @@
             <point key="canvasLocation" x="4060.5" y="271"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camerabutton" width="296" height="297"/>
+        <image name="librabybutton" width="307" height="248"/>
+        <image name="videoButton" width="87" height="64"/>
+    </resources>
 </document>
