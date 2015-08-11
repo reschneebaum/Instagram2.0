@@ -17,6 +17,7 @@
 @property NSArray *users;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
 @property BOOL areUsers;
 
 @end
@@ -91,5 +92,7 @@
         }
 }
 
+- (IBAction)onCreateAccountButtonPressed:(UIButton *)sender {
+}
 
 @end
