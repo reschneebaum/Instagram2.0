@@ -10,4 +10,6 @@
 
 @interface DetailProfileImageViewController : UIViewController
 
+-(IBAction)alertAction;
+
 @end
