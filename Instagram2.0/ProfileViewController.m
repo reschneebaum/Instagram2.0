@@ -36,15 +36,21 @@
 
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     self.moc = delegate.managedObjectContext;
-    self.photos = [NSArray new];
+    [self setUserInformation];
+    [self loadOwnPhotos];
 }
 
 -(void)loadOwnPhotos {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-    NSSortDescriptor *userSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:true];
-    request.sortDescriptors = @[userSortDescriptor];
-    self.users = [self.moc executeFetchRequest:request error:nil];
-    NSLog(@"%@, %@", [self.users valueForKey:@"username"], [self.users valueForKey:@"password"]);
+    NSFetchRequest *userPhotoRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+    userPhotoRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos CONTAINS %@", self.user];
+    NSSortDescriptor *userPhotoSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
+    userPhotoRequest.sortDescriptors = @[userPhotoSortDescriptor];
+    self.photos = [self.moc executeFetchRequest:userPhotoRequest error:nil];
+    NSLog(@"%@, %@", [self.photos valueForKey:@"username"], [self.photos valueForKey:@"urlString"]);
+}
+
+-(void)setUserInformation {
+    
 }
 
 
@@ -52,13 +58,13 @@
 #pragma mark -
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCellID" forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePhotosID" forIndexPath:indexPath];
     // note: will replace with custom cell
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return self.photos.count;
 }
 
 
