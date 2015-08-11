@@ -21,6 +21,7 @@
 		C403449F1B7A6350000383DB /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C403449E1B7A6350000383DB /* CameraViewController.m */; };
 		C40344A21B7A635A000383DB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344A11B7A635A000383DB /* SearchViewController.m */; };
 		C40344A51B7A636E000383DB /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344A41B7A636E000383DB /* FriendProfileViewController.m */; };
+		FD8133BF1B7A944300E48BCE /* DetailProfileImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		C40344A11B7A635A000383DB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		C40344A31B7A636E000383DB /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendProfileViewController.h; sourceTree = "<group>"; };
 		C40344A41B7A636E000383DB /* FriendProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendProfileViewController.m; sourceTree = "<group>"; };
+		FD8133BD1B7A944300E48BCE /* DetailProfileImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailProfileImageViewController.h; sourceTree = "<group>"; };
+		FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailProfileImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				C40344A31B7A636E000383DB /* FriendProfileViewController.h */,
 				C40344A41B7A636E000383DB /* FriendProfileViewController.m */,
 				C40344461B794477000383DB /* Main.storyboard */,
+				FD8133BD1B7A944300E48BCE /* DetailProfileImageViewController.h */,
+				FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */,
 				C40344491B794477000383DB /* Images.xcassets */,
 				C403444B1B794477000383DB /* LaunchScreen.xib */,
 				C40344401B794477000383DB /* Instagram2_0.xcdatamodeld */,
@@ -260,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD8133BF1B7A944300E48BCE /* DetailProfileImageViewController.m in Sources */,
 				C40344641B794A22000383DB /* User.m in Sources */,
 				C403449F1B7A6350000383DB /* CameraViewController.m in Sources */,
 				C403449C1B7A6347000383DB /* NewsFeedViewController.m in Sources */,
@@ -464,6 +470,7 @@
 				C403445E1B794477000383DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C403445F1B794477000383DB /* Build configuration list for PBXNativeTarget "Instagram2.0Tests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +479,7 @@
 				C40344611B794477000383DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
