@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIButton *photosButton;
 @property (weak, nonatomic) IBOutlet UIButton *friendsButton;
 @property NSArray *photos;
@@ -52,9 +53,18 @@
 -(void)setUserInformation {
     // add profile pic property
 //    self.profilePictureImageView = self.user.profilePicture;
-//    self.nameLabel.text = [NSString stringWithFormat:<#(NSString *), ...#>]
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
+    self.descriptionTextField.text = self.user.textDescription;
+    [self.editButton isEnabled];
+    [self.doneButton isHidden];
 }
 
+-(void)switchEditDoneButtons {
+    self.doneButton.enabled = !self.doneButton.enabled;
+    self.doneButton.hidden = !self.doneButton.hidden;
+    self.editButton.hidden = !self.editButton.hidden;
+    self.editButton.enabled = !self.editButton.enabled;
+}
 
 #pragma mark - UICollectionView data source methods
 #pragma mark -
@@ -73,9 +83,11 @@
 #pragma mark - space for IBActions in case needed
 
 - (IBAction)onEditButtonPressed:(UIButton *)sender {
+    [self switchEditDoneButtons];
 }
 
 - (IBAction)onDoneButtonPressed:(UIButton *)sender {
+    [self switchEditDoneButtons];
 }
 
 - (IBAction)onPhotosButtonPressed:(UIButton *)sender {

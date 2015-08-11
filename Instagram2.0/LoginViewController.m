@@ -53,7 +53,7 @@
         }
     }
 
-    if (self.areUsers == true) {
+    if (self.areUsers) {
         NSLog(@"go to profile page!");
         [self performSegueWithIdentifier:@"loginSegue" sender:self];
     } else {
