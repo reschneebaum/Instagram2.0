@@ -7,9 +7,10 @@
 //
 
 #import "DetailProfileImageViewController.h"
-
+#import "Photo.h"
 @interface DetailProfileImageViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property Photo *photo;
 
 @end
 
@@ -24,6 +25,39 @@
                                  initWithTitle:@"Delete Image?"
                                  message:alertViewText delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
     [alert show];
-//    [alert release];
+
 }
-@end
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([buttonTitle isEqualToString:@"Delete"]) {
+       NSMutableArray *arrayOfImages = [NSMutableArray arrayWithCapacity:10];
+
+        [arrayOfImages removeObject:[NSString stringWithFormat:@"%@", self.photo]];
+
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            @end
