@@ -38,6 +38,11 @@
 
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     self.moc = delegate.managedObjectContext;
+
+    [self checkForAndLoadPhotos];
+
+//  testing photo storing
+//    self.image = [UIImage imageNamed:@"flash"];
 }
 
 -(void)checkForAndLoadPhotos {
@@ -81,13 +86,20 @@
 }
 
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self.imageView setImage:self.image];
 
 //    instantiate instance of photo class and assign value to property, then pass into the following:
 //    [self storePhoto:photo withFileName:photo.urlString];
-    
-    [self.moc save:nil];
+
+//  testing photo storing
+//    Photo *photo = [Photo new];
+//    photo.urlString = [NSString stringWithFormat:@"flash"];
+
+//  resume code
+//    [self storePhoto:photo withFileName:photo.urlString];
+//    
+//    [self.moc save:nil];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
