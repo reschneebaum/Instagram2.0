@@ -19,23 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
-- (IBAction)onCreateAccountButtonPressed:(UIButton *)sender {
-    NSString *alertViewText = [[NSString alloc] initWithFormat:@"Are you sure you want to delete this image?"];
-    UIAlertView *alert = [[UIAlertView alloc]
-                                 initWithTitle:@"Delete Image?"
-                                 message:alertViewText delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
-    [alert show];
+//- (IBAction)onCreateAccountButtonPressed:(UIButton *)sender {
+//    NSString *alertViewText = [[NSString alloc] initWithFormat:@"Are you sure you want to delete this image?"];
+//    UIAlertView *alert = [[UIAlertView alloc]
+//                                 initWithTitle:@"Delete Image?"
+//                                 message:alertViewText delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+//    [alert show];
 
-}
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
-    if ([buttonTitle isEqualToString:@"Delete"]) {
-       NSMutableArray *arrayOfImages = [NSMutableArray arrayWithCapacity:10];
-
-        [arrayOfImages removeObject:[NSString stringWithFormat:@"%@", self.photo]];
-
-        }
-}
+//}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+//    if ([buttonTitle isEqualToString:@"Delete"]) {
+//       NSMutableArray *arrayOfImages = [NSMutableArray arrayWithCapacity:10];
+//
+//        [arrayOfImages removeObject:[NSString stringWithFormat:@"%@", self.photo]];
+//
+//        }
+//}
 
 
 

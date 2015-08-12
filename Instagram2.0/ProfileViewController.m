@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "ProfileViewController.h"
+#import "CameraViewController.h"
 #import "User.h"
 #import "Photo.h"
 
@@ -43,7 +44,7 @@
 
 -(void)loadOwnPhotos {
     NSFetchRequest *userPhotoRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-    userPhotoRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos CONTAINS %@", self.user];
+    userPhotoRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos == %@", self.user];
     NSSortDescriptor *userPhotoSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
     userPhotoRequest.sortDescriptors = @[userPhotoSortDescriptor];
     self.photos = [self.moc executeFetchRequest:userPhotoRequest error:nil];
@@ -52,7 +53,7 @@
 
 -(void)setUserInformation {
 //  note to self: add profile pic property
-//    self.profilePictureImageView = self.user.profilePicture;
+//    self.profilePictureIm ageView = self.user.profilePicture;
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
     self.descriptionTextField.text = self.user.textDescription;
     [self.editButton isEnabled];
@@ -94,6 +95,11 @@
 }
 
 - (IBAction)onFriendsButtonPressed:(UIButton *)sender {
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    CameraViewController *cVC = segue.destinationViewController;
+    cVC.user = self.user;
 }
 
 @end

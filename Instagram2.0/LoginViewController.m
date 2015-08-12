@@ -33,8 +33,8 @@
     [self loadUsers];
 
     self.passwordTextField.secureTextEntry = true;
-    self.usernameTextField.text = @"user2";
-    self.passwordTextField.text = @"test2";
+    self.usernameTextField.text = @"fiaz";
+    self.passwordTextField.text = @"sami";
 }
 
 -(void)loadUsers {
@@ -55,7 +55,9 @@
 
     if (self.areUsers) {
         NSLog(@"go to profile page!");
-        [self performSegueWithIdentifier:@"loginSegue" sender:self];
+        ProfileViewController *profileVC=[self.storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
+        [self.navigationController pushViewController:profileVC animated:YES];
+//        [self performSegueWithIdentifier:@"loginSegue" sender:self];
     } else {
         NSLog(@"go to signup page!");
         // note: create a helper method that returns nothing & takes UIAlertController as parameter
@@ -97,7 +99,7 @@
 }
 
 - (IBAction)onCreateAccountButtonPressed:(UIButton *)sender {
-    // note: user helper method mentioned above
+    // note: use helper method mentioned above
     UIAlertController *createAccountAlert = [UIAlertController alertControllerWithTitle:@"Create a new account" message:nil preferredStyle:UIAlertControllerStyleAlert];
     [createAccountAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = @"First Name";
@@ -136,9 +138,9 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
-    if ([segue.identifier isEqualToString:@"profileSegue"]) {
+    if ([segue.identifier isEqualToString:@"loginSegue"]) {
         ProfileViewController *profileVC = segue.destinationViewController;
-//      profileVC.moc = self.moc;
+//        profileVC.moc = self.moc;
         profileVC.user = self.user;
         profileVC.users = self.users;
     }
