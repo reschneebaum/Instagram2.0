@@ -89,7 +89,7 @@
 //    self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self.imageView setImage:self.image];
 
-//    instantiate instance of photo class and assign value to property, then pass into the following:
+//    note to self: instantiate instance of photo class and assign value to property, then pass into the following:
 //    [self storePhoto:photo withFileName:photo.urlString];
 
 //  testing photo storing

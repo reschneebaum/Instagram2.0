@@ -51,7 +51,7 @@
 }
 
 -(void)setUserInformation {
-    // add profile pic property
+//  note to self: add profile pic property
 //    self.profilePictureImageView = self.user.profilePicture;
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
     self.descriptionTextField.text = self.user.textDescription;
@@ -71,7 +71,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePhotosID" forIndexPath:indexPath];
-    // note: will replace with custom cell
+    // note to self: replace with custom cell/create custom cell class
     return cell;
 }
 
