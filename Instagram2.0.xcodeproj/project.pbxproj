@@ -124,15 +124,9 @@
 				C40344A11B7A635A000383DB /* SearchViewController.m */,
 				C40344A31B7A636E000383DB /* FriendProfileViewController.h */,
 				C40344A41B7A636E000383DB /* FriendProfileViewController.m */,
-				C40344461B794477000383DB /* Main.storyboard */,
-				C40344AF1B7B821B000383DB /* Friend.h */,
-				C40344B01B7B821B000383DB /* Friend.m */,
-				C40344B21B7B822E000383DB /* Photo.h */,
-				C40344B31B7B822E000383DB /* Photo.m */,
-				C40344B51B7B823A000383DB /* User.h */,
-				C40344B61B7B823A000383DB /* User.m */,
 				FD8133BD1B7A944300E48BCE /* DetailProfileImageViewController.h */,
 				FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */,
+				C40344461B794477000383DB /* Main.storyboard */,
 				C40344491B794477000383DB /* Images.xcassets */,
 				C403444B1B794477000383DB /* LaunchScreen.xib */,
 				C40344401B794477000383DB /* Instagram2_0.xcdatamodeld */,
@@ -171,6 +165,12 @@
 		C40344651B794A2F000383DB /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
+				C40344AF1B7B821B000383DB /* Friend.h */,
+				C40344B01B7B821B000383DB /* Friend.m */,
+				C40344B21B7B822E000383DB /* Photo.h */,
+				C40344B31B7B822E000383DB /* Photo.m */,
+				C40344B51B7B823A000383DB /* User.h */,
+				C40344B61B7B823A000383DB /* User.m */,
 			);
 			name = "Model Objects";
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 				INFOPLIST_FILE = Instagram2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"VALID_ARCHS[sdk=*]" = "i386 x86_64";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = "i386 x86_64";
 			};
 			name = Debug;
 		};

@@ -39,7 +39,7 @@
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     self.moc = delegate.managedObjectContext;
 
-    [self checkForAndLoadPhotos];
+//    [self checkForAndLoadPhotos];
 
 //  testing photo storing
     self.image = [UIImage imageNamed:@"flash"];
@@ -47,7 +47,7 @@
 
 -(void)checkForAndLoadPhotos {
     NSFetchRequest *photosRequest = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-    photosRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos CONTAINS %@", self.user];
+    photosRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos == %@", self.user];
     NSSortDescriptor *userPhotosSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"username" ascending:true];
     photosRequest.sortDescriptors = @[userPhotosSortDescriptor];
     self.photos = [self.moc executeFetchRequest:photosRequest error:nil];
@@ -83,7 +83,7 @@
     [self presentViewController:self.picker2 animated:YES completion:NULL];
 }
 
--(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 //    self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self.imageView setImage:self.image];
 
@@ -92,7 +92,7 @@
 
 //  testing photo storing
     Photo *photo = [Photo new];
-    photo.urlString = [NSString stringWithFormat:@"flash"];
+    photo.urlString = @"flash";
 
 //  resume code
     [self storePhoto:photo withFileName:photo.urlString];

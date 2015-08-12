@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="mTV-hB-djD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="HA1-dK-csF">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Instagram 2.0 | Login-->
+        <!--loginVC-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" title="loginVC" id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -47,7 +47,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onLoginButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mdy-dN-SjJ"/>
-                                    <segue destination="IoY-5i-T5t" kind="push" identifier="loginSegue" id="2KF-UX-lD3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STF-9G-gly">
@@ -71,12 +70,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="630" y="341"/>
+            <point key="canvasLocation" x="190" y="229"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--profileVC-->
         <scene sceneID="OsZ-JK-7rx">
             <objects>
-                <viewController id="IoY-5i-T5t" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileVC" title="profileVC" id="IoY-5i-T5t" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="17C-2A-4n0"/>
                         <viewControllerLayoutGuide type="bottom" id="5am-vM-7y1"/>
@@ -132,16 +131,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlv-YZ-kf9">
-                                <rect key="frame" x="200" y="118" width="49" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Photos">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onPhotosButtonPressed:" destination="IoY-5i-T5t" eventType="touchUpInside" id="2Yk-AM-HgW"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYq-lF-CY4">
                                 <rect key="frame" x="257" y="118" width="51" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -162,10 +151,22 @@
                                     <action selector="onDoneButtonPressed:" destination="IoY-5i-T5t" eventType="touchUpInside" id="2GX-Gj-EAM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlv-YZ-kf9">
+                                <rect key="frame" x="200" y="118" width="49" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Photos">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPhotosButtonPressed:" destination="IoY-5i-T5t" eventType="touchUpInside" id="2Yk-AM-HgW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="UcT-3I-9OL"/>
+                    <navigationItem key="navigationItem" id="UcT-3I-9OL">
+                        <barButtonItem key="rightBarButtonItem" title="News Feed" id="3j8-ey-D02"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionTextField" destination="01t-Q9-Zdy" id="d26-jk-s0L"/>
                         <outlet property="editButton" destination="eYH-Lz-KHm" id="sP2-Yj-g51"/>
@@ -178,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxS-45-h09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040" y="110"/>
+            <point key="canvasLocation" x="672" y="222"/>
         </scene>
         <!--Detail Profile Image View Controller-->
         <scene sceneID="dgy-l2-ihC">
@@ -192,7 +193,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5gQ-Fq-d0j">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gQ-Fq-d0j">
                                 <rect key="frame" x="0.0" y="132" width="320" height="258"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -259,7 +260,7 @@
                                     <action selector="onCreateAccountButtonPressed:" destination="mTV-hB-djD" eventType="touchUpInside" id="hYf-84-V01"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp7-jI-7ZP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="username title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp7-jI-7ZP">
                                 <rect key="frame" x="16" y="93" width="109" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="3sf-Gb-hNN"/>
@@ -269,7 +270,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time passed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glw-1j-8Qg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time passed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glw-1j-8Qg">
                                 <rect key="frame" x="216" y="95" width="94" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="EbM-kI-rQU"/>
@@ -315,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fH9-wF-dHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1415" y="110"/>
+            <point key="canvasLocation" x="1134" y="-180"/>
         </scene>
         <!--News Feed View Controller-->
         <scene sceneID="W97-Lk-TF3">
@@ -352,7 +353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAW-Aa-K7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040" y="735"/>
+            <point key="canvasLocation" x="1126" y="648"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="uBJ-Vf-m3V">
@@ -509,6 +510,7 @@
                             <constraint firstItem="AJk-ub-jbx" firstAttribute="leading" secondItem="JsK-3x-qja" secondAttribute="leading" id="wYT-ge-P0o"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dNJ-5d-0Rl"/>
                     <connections>
                         <outlet property="barbuttonbackground" destination="rnE-tG-5cW" id="FeK-1B-Vek"/>
                         <outlet property="cameraButton" destination="YM8-LY-cjH" id="lL1-WT-Njw"/>
@@ -522,7 +524,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0G-Lp-trh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2292" y="256"/>
+            <point key="canvasLocation" x="1586" y="222"/>
         </scene>
         <!--Friend Profile View Controller-->
         <scene sceneID="1St-C1-5Hb">
@@ -600,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aph-LM-1dt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2706" y="256"/>
+            <point key="canvasLocation" x="2220" y="648"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="esK-Bp-Gb4">
@@ -672,25 +674,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csx-Y4-I4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="257.60000000000002" y="110.76000000000001"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="KlF-4t-3qu">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qBu-Ac-FpG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tUi-Fm-aBR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="mTV-hB-djD" kind="relationship" relationship="rootViewController" id="9Vj-ry-YyW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dRS-NA-8Dq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1371" y="-541"/>
+            <point key="canvasLocation" x="-311" y="222"/>
         </scene>
     </scenes>
     <resources>
