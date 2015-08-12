@@ -215,16 +215,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="dZp-5T-EPs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="comment/description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeT-kP-s4P">
-                                <rect key="frame" x="33" y="429" width="164" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="WXL-SQ-9ib"/>
-                                    <constraint firstAttribute="width" constant="164" id="qM9-kz-yL1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPp-em-doD">
                                 <rect key="frame" x="12" y="465" width="74" height="30"/>
                                 <constraints>
@@ -306,7 +296,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="number likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAu-jj-YUU">
-                                <rect key="frame" x="38" y="400" width="98" height="21"/>
+                                <rect key="frame" x="60" y="401" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="LEV-hG-cnx"/>
                                     <constraint firstAttribute="width" constant="98" id="kvV-fX-aqy"/>
@@ -321,6 +311,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="commenticon" translatesAutoresizingMaskIntoConstraints="NO" id="Rzz-0L-zXK">
                                 <rect key="frame" x="4" y="424" width="28" height="26"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="comment/description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeT-kP-s4P">
+                                <rect key="frame" x="49" y="429" width="164" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="WXL-SQ-9ib"/>
+                                    <constraint firstAttribute="width" constant="164" id="qM9-kz-yL1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -418,7 +418,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwZ-QN-GJH">
-                                <rect key="frame" x="32" y="478" width="55" height="45"/>
+                                <rect key="frame" x="41" y="489" width="46" height="34"/>
                                 <state key="normal" image="librabybutton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -552,12 +552,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Upa-cg-qqa">
-                                <rect key="frame" x="16" y="67" width="147" height="123"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGN-5Z-jkM">
-                                <rect key="frame" x="213" y="148" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGN-5Z-jkM">
+                                <rect key="frame" x="142" y="119" width="168" height="36"/>
+                                <state key="normal" image="followbutton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -609,14 +606,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNT-bM-KRo">
-                                <rect key="frame" x="0.0" y="270" width="163" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="3FX-cU-NN5"/>
-                                    <tabBarItem systemItem="more" id="baz-rj-xST"/>
-                                </items>
-                            </tabBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Upa-cg-qqa">
+                                <rect key="frame" x="16" y="74" width="94" height="88"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -706,6 +698,7 @@
         <image name="delete3dotsbutton" width="86" height="67"/>
         <image name="edityourprofilebutton" width="331" height="52"/>
         <image name="flashbutton" width="67" height="74"/>
+        <image name="followbutton" width="412" height="84"/>
         <image name="gridbutton" width="60" height="60"/>
         <image name="homebutton" width="127" height="90"/>
         <image name="librabybutton" width="307" height="248"/>
