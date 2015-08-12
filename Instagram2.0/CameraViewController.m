@@ -36,36 +36,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    self.moc = delegate.managedObjectContext;
-
-    [self checkForAndLoadPhotos];
+//    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+//    self.moc = delegate.managedObjectContext;
+//
+//    [self checkForAndLoadPhotos];
 
 //  testing photo storing
-    self.image = [UIImage imageNamed:@"flash"];
-}
-
--(void)checkForAndLoadPhotos {
-    NSFetchRequest *photosRequest = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-    photosRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos CONTAINS %@", self.user];
-    NSSortDescriptor *userPhotosSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"username" ascending:true];
-    photosRequest.sortDescriptors = @[userPhotosSortDescriptor];
-    self.photos = [self.moc executeFetchRequest:photosRequest error:nil];
-    if (self.photos.count == 0) {
-        NSLog(@"no photos in array");
-        self.arePhotos = false;
-    }
-}
-
--(void)storePhoto:(Photo *)photo withFileName:(NSString *)fileName {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *libraryDirectory = [paths objectAtIndex:0];
-    NSString *path = [libraryDirectory stringByAppendingPathComponent:fileName];
-    NSData *imageData = UIImagePNGRepresentation(self.image);
-    [imageData writeToFile:path atomically:YES];
-    photo.name = fileName;
-    self.photo = photo;
-    [self.photo setValue:fileName forKey:@"name"];
+//    self.image = [UIImage imageNamed:@"flash"];
+//}
+//
+//-(void)checkForAndLoadPhotos {
+//    NSFetchRequest *photosRequest = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+//    photosRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos CONTAINS %@", self.user];
+//    NSSortDescriptor *userPhotosSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"username" ascending:true];
+//    photosRequest.sortDescriptors = @[userPhotosSortDescriptor];
+//    self.photos = [self.moc executeFetchRequest:photosRequest error:nil];
+//    if (self.photos.count == 0) {
+//        NSLog(@"no photos in array");
+//        self.arePhotos = false;
+//    }
+//}
+//
+//-(void)storePhoto:(Photo *)photo withFileName:(NSString *)fileName {
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+//    NSString *libraryDirectory = [paths objectAtIndex:0];
+//    NSString *path = [libraryDirectory stringByAppendingPathComponent:fileName];
+//    NSData *imageData = UIImagePNGRepresentation(self.image);
+//    [imageData writeToFile:path atomically:YES];
+//    photo.name = fileName;
+//    self.photo = photo;
+//    [self.photo setValue:fileName forKey:@"name"];
 }
 
 - (IBAction)TakePhoto {
@@ -95,7 +95,7 @@
     photo.urlString = [NSString stringWithFormat:@"flash"];
 
 //  resume code
-    [self storePhoto:photo withFileName:photo.urlString];
+//    [self storePhoto:photo withFileName:photo.urlString];
 
     [self.moc save:nil];
     [self dismissViewControllerAnimated:YES completion:NULL];
