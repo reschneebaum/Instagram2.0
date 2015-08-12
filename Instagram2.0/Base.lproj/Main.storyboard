@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="T63-6a-JNN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="HA1-dK-csF">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -656,7 +656,6 @@
         <image name="flashbutton" width="67" height="74"/>
         <image name="gridbutton" width="60" height="60"/>
         <image name="librabybutton" width="307" height="248"/>
-
         <image name="likebutton" width="151" height="63"/>
         <image name="rotatecamerabutton" width="78" height="77"/>
         <image name="videobutton" width="109" height="106"/>
