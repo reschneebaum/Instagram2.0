@@ -7,7 +7,6 @@
 //
 
 #import "User.h"
-#import "NSManagedObject.h"
 #import "Photo.h"
 
 

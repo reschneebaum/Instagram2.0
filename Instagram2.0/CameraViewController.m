@@ -42,7 +42,7 @@
     [self checkForAndLoadPhotos];
 
 //  testing photo storing
-//    self.image = [UIImage imageNamed:@"flash"];
+    self.image = [UIImage imageNamed:@"flash"];
 }
 
 -(void)checkForAndLoadPhotos {
@@ -74,7 +74,6 @@
     [self.picker setSourceType:UIImagePickerControllerSourceTypeCamera];
     [self presentViewController:self.
      picker animated:YES completion:NULL];
-    //    [self.picker release];
 }
 
 - (IBAction)ChooseExisting {
@@ -82,7 +81,6 @@
     self.picker2.delegate = self;
     [self.picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentViewController:self.picker2 animated:YES completion:NULL];
-    //    [picker2 release];
 }
 
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -93,13 +91,13 @@
 //    [self storePhoto:photo withFileName:photo.urlString];
 
 //  testing photo storing
-//    Photo *photo = [Photo new];
-//    photo.urlString = [NSString stringWithFormat:@"flash"];
+    Photo *photo = [Photo new];
+    photo.urlString = [NSString stringWithFormat:@"flash"];
 
 //  resume code
-//    [self storePhoto:photo withFileName:photo.urlString];
-//    
-//    [self.moc save:nil];
+    [self storePhoto:photo withFileName:photo.urlString];
+
+    [self.moc save:nil];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
