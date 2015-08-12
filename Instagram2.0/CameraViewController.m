@@ -66,6 +66,7 @@
     photo.name = fileName;
     self.photo = photo;
     [self.photo setValue:fileName forKey:@"name"];
+
 }
 
 - (IBAction)TakePhoto {
@@ -95,7 +96,7 @@
     photo.urlString = @"flash";
 
 //  resume code
-    [self storePhoto:photo withFileName:photo.urlString];
+//    [self storePhoto:photo withFileName:photo.urlString];
 
     [self.moc save:nil];
     [self dismissViewControllerAnimated:YES completion:NULL];
