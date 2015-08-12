@@ -50,6 +50,8 @@
         if ([user.username isEqualToString:self.usernameTextField.text] && [user.password isEqualToString:self.passwordTextField.text]) {
             self.areUsers = true;
             self.user = user;
+            NSLog(@"self.user.username: %@", self.user.username);
+            NSLog(@"self.users.count: %lu", (unsigned long)self.users.count);
         }
     }
 
@@ -57,7 +59,12 @@
         NSLog(@"go to profile page!");
         ProfileViewController *profileVC=[self.storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
         [self.navigationController pushViewController:profileVC animated:YES];
+        profileVC.user = self.user;
+        profileVC.users = self.users;
+//        profileVC.moc = self.moc;
 //        [self performSegueWithIdentifier:@"loginSegue" sender:self];
+        NSLog(@"self.user.username: %@", self.user.username);
+        NSLog(@"self.users.count: %lu", (unsigned long)self.users.count);
     } else {
         NSLog(@"go to signup page!");
         // note: create a helper method that returns nothing & takes UIAlertController as parameter
@@ -137,12 +144,11 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
     if ([segue.identifier isEqualToString:@"loginSegue"]) {
-        ProfileViewController *profileVC = segue.destinationViewController;
-//        profileVC.moc = self.moc;
-        profileVC.user = self.user;
-        profileVC.users = self.users;
+//        ProfileViewController *profileVC = segue.destinationViewController;
+//        profileVC.user = self.user;
+//        profileVC.users = self.users;
+
     }
 }
 
