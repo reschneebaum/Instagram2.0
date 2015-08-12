@@ -683,7 +683,7 @@
         <image name="grid" width="33" height="32"/>
         <image name="librabybutton" width="307" height="248"/>
         <image name="rotatecamera" width="55" height="42"/>
-        <image name="videoButton" width="87" height="64"/>
+        <image name="videoButton" width="109" height="106"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

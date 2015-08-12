@@ -30,14 +30,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    self.moc = delegate.managedObjectContext;
+
     NSLog(@"%@", self.users.firstObject);
     NSLog(@"%@", self.user.username);
     NSLog(@"%@", self.user.password);
     NSLog(@"%@", self.user.firstName);
     NSLog(@"%@", self.user.lastName);
 
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    self.moc = delegate.managedObjectContext;
+
     [self setUserInformation];
     [self loadOwnPhotos];
 }
