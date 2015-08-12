@@ -694,7 +694,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camerabutton" width="296" height="297"/>
+        <image name="camerabutton" width="190" height="203"/>
         <image name="flash" width="37" height="45"/>
         <image name="grid" width="33" height="32"/>
         <image name="librabybutton" width="307" height="248"/>
