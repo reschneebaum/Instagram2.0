@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *photosButton;
 @property (weak, nonatomic) IBOutlet UIButton *friendsButton;
 @property NSArray *photos;
+@property BOOL isEditingProfile;
 
 @end
 
@@ -39,14 +40,13 @@
     NSLog(@"%@", self.user.firstName);
     NSLog(@"%@", self.user.lastName);
 
-
     [self setUserInformation];
     [self loadOwnPhotos];
 }
 
 -(void)loadOwnPhotos {
     NSFetchRequest *userPhotoRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-    userPhotoRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos == %@", self.user];
+    userPhotoRequest.predicate = [NSPredicate predicateWithFormat:@"isUserPhoto == %@", self.user];
     NSSortDescriptor *userPhotoSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
     userPhotoRequest.sortDescriptors = @[userPhotoSortDescriptor];
     self.photos = [self.moc executeFetchRequest:userPhotoRequest error:nil];
@@ -54,8 +54,7 @@
 }
 
 -(void)setUserInformation {
-//  note to self: add profile pic property
-//    self.profilePictureImageView = self.user.profilePicture;
+    self.profilePictureImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", self.user.profilePic]];
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
     self.descriptionTextField.text = self.user.textDescription;
     [self.editButton isEnabled];
@@ -63,10 +62,19 @@
 }
 
 -(void)switchEditDoneButtons {
-    self.doneButton.enabled = !self.doneButton.enabled;
-    self.doneButton.hidden = !self.doneButton.hidden;
-    self.editButton.hidden = !self.editButton.hidden;
-    self.editButton.enabled = !self.editButton.enabled;
+    if (self.isEditingProfile) {
+        self.editButton.hidden = true;
+        self.editButton.enabled = false;
+        self.doneButton.hidden = false;
+        self.doneButton.enabled = true;
+        self.descriptionTextField.userInteractionEnabled = true;
+    } else {
+        self.editButton.hidden = false;
+        self.editButton.enabled = true;
+        self.doneButton.hidden = true;
+        self.doneButton.enabled = false;
+        self.descriptionTextField.userInteractionEnabled = false;
+    }
 }
 
 #pragma mark - UICollectionView data source methods
@@ -86,11 +94,15 @@
 #pragma mark - space for IBActions in case needed
 
 - (IBAction)onEditButtonPressed:(UIButton *)sender {
+    self.isEditingProfile = true;
     [self switchEditDoneButtons];
 }
 
 - (IBAction)onDoneButtonPressed:(UIButton *)sender {
+    self.isEditingProfile = false;
     [self switchEditDoneButtons];
+    [self.descriptionTextField resignFirstResponder];
+    self.user.textDescription = self.descriptionTextField.text;
 }
 
 - (IBAction)onPhotosButtonPressed:(UIButton *)sender {

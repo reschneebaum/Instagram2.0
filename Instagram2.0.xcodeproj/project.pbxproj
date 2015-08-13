@@ -20,9 +20,9 @@
 		C403449F1B7A6350000383DB /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C403449E1B7A6350000383DB /* CameraViewController.m */; };
 		C40344A21B7A635A000383DB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344A11B7A635A000383DB /* SearchViewController.m */; };
 		C40344A51B7A636E000383DB /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344A41B7A636E000383DB /* FriendProfileViewController.m */; };
-		C40344F61B7C2F2D000383DB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F51B7C2F2D000383DB /* User.m */; };
-		C40344F91B7C2F2D000383DB /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F81B7C2F2D000383DB /* Friend.m */; };
-		C40344FC1B7C2F2D000383DB /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344FB1B7C2F2D000383DB /* Photo.m */; };
+		C40344FD1B7C3AD9000383DB /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344FB1B7C2F2D000383DB /* Photo.m */; };
+		C40344FE1B7C3ADD000383DB /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F81B7C2F2D000383DB /* Friend.m */; };
+		C40344FF1B7C3AE1000383DB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F51B7C2F2D000383DB /* User.m */; };
 		FD8133BF1B7A944300E48BCE /* DetailProfileImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -275,19 +275,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C40344FF1B7C3AE1000383DB /* User.m in Sources */,
 				FD8133BF1B7A944300E48BCE /* DetailProfileImageViewController.m in Sources */,
 				C403449F1B7A6350000383DB /* CameraViewController.m in Sources */,
 				C403449C1B7A6347000383DB /* NewsFeedViewController.m in Sources */,
 				C40344421B794477000383DB /* Instagram2_0.xcdatamodeld in Sources */,
 				C40344A21B7A635A000383DB /* SearchViewController.m in Sources */,
 				C403443F1B794477000383DB /* AppDelegate.m in Sources */,
-				C40344F91B7C2F2D000383DB /* Friend.m in Sources */,
 				C40344451B794477000383DB /* LoginViewController.m in Sources */,
 				C40344991B7A6338000383DB /* ProfileViewController.m in Sources */,
-				C40344F61B7C2F2D000383DB /* User.m in Sources */,
 				C40344A51B7A636E000383DB /* FriendProfileViewController.m in Sources */,
 				C403443C1B794477000383DB /* main.m in Sources */,
-				C40344FC1B7C2F2D000383DB /* Photo.m in Sources */,
+				C40344FD1B7C3AD9000383DB /* Photo.m in Sources */,
+				C40344FE1B7C3ADD000383DB /* Friend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
