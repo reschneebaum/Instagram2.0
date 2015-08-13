@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="mTV-hB-djD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="IoY-5i-T5t">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -161,18 +161,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZII-GX-QY8">
                                 <rect key="frame" x="16" y="66" width="112" height="91"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="paD-UP-3x5">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTc-4X-xLQ">
-                                        <rect key="frame" x="280" y="21" width="36" height="30"/>
-                                        <state key="normal" image="settingsbutton">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.043137256056070328" green="0.63137257099151611" blue="0.96862751245498657" alpha="1" colorSpace="deviceRGB"/>
-                            </view>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gew-hC-eMJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.066666666666666666" green="0.23137254901960785" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.066666666666666666" green="0.23137254901960785" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Title" id="3zF-gy-jpU"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -708,7 +704,6 @@
         <image name="profilebutton" width="128" height="90"/>
         <image name="rotatecamerabutton" width="78" height="77"/>
         <image name="searchbutton" width="129" height="90"/>
-        <image name="settingsbutton" width="67" height="55"/>
         <image name="videobutton" width="109" height="106"/>
         <image name="xbutton" width="73" height="47"/>
     </resources>
