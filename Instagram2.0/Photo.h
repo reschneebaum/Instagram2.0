@@ -15,7 +15,6 @@
 
 @property (nonatomic, retain) NSNumber * likesNumber;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * urlString;
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSString * whenTaken;
 @property (nonatomic, retain) NSString * image;

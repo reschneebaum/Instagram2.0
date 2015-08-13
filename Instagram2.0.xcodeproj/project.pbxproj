@@ -23,6 +23,7 @@
 		C40344FD1B7C3AD9000383DB /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344FB1B7C2F2D000383DB /* Photo.m */; };
 		C40344FE1B7C3ADD000383DB /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F81B7C2F2D000383DB /* Friend.m */; };
 		C40344FF1B7C3AE1000383DB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F51B7C2F2D000383DB /* User.m */; };
+		C4C3C9ED1B7CC8CB001FED3E /* UserPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3C9EC1B7CC8CB001FED3E /* UserPhotoCell.m */; };
 		FD8133BF1B7A944300E48BCE /* DetailProfileImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,8 @@
 		C40344F81B7C2F2D000383DB /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
 		C40344FA1B7C2F2D000383DB /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		C40344FB1B7C2F2D000383DB /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		C4C3C9EB1B7CC8CB001FED3E /* UserPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPhotoCell.h; sourceTree = "<group>"; };
+		C4C3C9EC1B7CC8CB001FED3E /* UserPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPhotoCell.m; sourceTree = "<group>"; };
 		FD8133BD1B7A944300E48BCE /* DetailProfileImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailProfileImageViewController.h; sourceTree = "<group>"; };
 		FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailProfileImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 				FD8133BD1B7A944300E48BCE /* DetailProfileImageViewController.h */,
 				FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */,
 				C40344461B794477000383DB /* Main.storyboard */,
+				C4C3C9EB1B7CC8CB001FED3E /* UserPhotoCell.h */,
+				C4C3C9EC1B7CC8CB001FED3E /* UserPhotoCell.m */,
 				C40344491B794477000383DB /* Images.xcassets */,
 				C403444B1B794477000383DB /* LaunchScreen.xib */,
 				C40344401B794477000383DB /* Instagram2_0.xcdatamodeld */,
@@ -280,6 +285,7 @@
 				C403449F1B7A6350000383DB /* CameraViewController.m in Sources */,
 				C403449C1B7A6347000383DB /* NewsFeedViewController.m in Sources */,
 				C40344421B794477000383DB /* Instagram2_0.xcdatamodeld in Sources */,
+				C4C3C9ED1B7CC8CB001FED3E /* UserPhotoCell.m in Sources */,
 				C40344A21B7A635A000383DB /* SearchViewController.m in Sources */,
 				C403443F1B794477000383DB /* AppDelegate.m in Sources */,
 				C40344451B794477000383DB /* LoginViewController.m in Sources */,

@@ -93,12 +93,6 @@
                                     <action selector="onEditButtonPressed:" destination="IoY-5i-T5t" eventType="touchUpInside" id="OcL-5N-xWv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoU-dq-Bvh">
-                                <rect key="frame" x="38" y="253" width="176" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6jg-5v-4ep">
                                 <rect key="frame" x="0.0" y="329" width="400" height="271"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZjA-q9-vGK">
@@ -123,11 +117,6 @@
                                     <outlet property="delegate" destination="IoY-5i-T5t" id="pde-fZ-6bf"/>
                                 </connections>
                             </collectionView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a description" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="01t-Q9-Zdy">
-                                <rect key="frame" x="16" y="282" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYq-lF-CY4">
                                 <rect key="frame" x="257" y="118" width="51" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -139,7 +128,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGQ-GC-oi5">
-                                <rect key="frame" x="257" y="28" width="37" height="30"/>
+                                <rect key="frame" x="212" y="150" width="37" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -160,7 +149,24 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZII-GX-QY8">
                                 <rect key="frame" x="16" y="66" width="112" height="91"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="LYh-OV-G5N" appends="YES" id="Uym-sX-2SL"/>
+                                </connections>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9w0-9Q-1Ek">
+                                <rect key="frame" x="16" y="219" width="288" height="84"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoU-dq-Bvh">
+                                <rect key="frame" x="16" y="190" width="176" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -168,7 +174,8 @@
                         <barButtonItem key="rightBarButtonItem" title="News Feed" id="3j8-ey-D02"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="descriptionTextField" destination="01t-Q9-Zdy" id="d26-jk-s0L"/>
+                        <outlet property="descriptionTextView" destination="9w0-9Q-1Ek" id="U5A-vA-IbC"/>
+                        <outlet property="doneButton" destination="vGQ-GC-oi5" id="X9g-jg-c3t"/>
                         <outlet property="editButton" destination="eYH-Lz-KHm" id="sP2-Yj-g51"/>
                         <outlet property="friendsButton" destination="xYq-lF-CY4" id="lDG-BB-fTH"/>
                         <outlet property="nameLabel" destination="SoU-dq-Bvh" id="rhW-0i-SHo"/>
@@ -178,6 +185,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxS-45-h09" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LYh-OV-G5N"/>
             </objects>
             <point key="canvasLocation" x="672" y="222"/>
         </scene>
@@ -381,7 +389,7 @@
         <!--Camera View Controller-->
         <scene sceneID="uBJ-Vf-m3V">
             <objects>
-                <viewController id="T63-6a-JNN" customClass="CameraViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cameraVC" id="T63-6a-JNN" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y88-Mh-3E3"/>
                         <viewControllerLayoutGuide type="bottom" id="yaN-IX-5iI"/>

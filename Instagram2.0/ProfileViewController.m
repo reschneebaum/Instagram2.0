@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "ProfileViewController.h"
 #import "CameraViewController.h"
+#import "UserPhotoCell.h"
 #import "User.h"
 #import "Photo.h"
 
@@ -17,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureImageView;
 @property (weak, nonatomic) IBOutlet UICollectionView *profileCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIButton *photosButton;
@@ -40,7 +41,7 @@
     NSLog(@"%@", self.user.firstName);
     NSLog(@"%@", self.user.lastName);
 
-    [self setUserInformation];
+    [self setUserInformationWithProfilePictureFileName:self.user.profilePic];
     [self loadOwnPhotos];
 }
 
@@ -50,15 +51,31 @@
     NSSortDescriptor *userPhotoSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
     userPhotoRequest.sortDescriptors = @[userPhotoSortDescriptor];
     self.photos = [self.moc executeFetchRequest:userPhotoRequest error:nil];
-    NSLog(@"%@, %@", [self.photos valueForKey:@"username"], [self.photos valueForKey:@"urlString"]);
+    NSLog(@"%@, %@", [self.photos valueForKey:@"username"], [self.photos valueForKey:@"image"]);
 }
 
--(void)setUserInformation {
-    self.profilePictureImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", self.user.profilePic]];
+-(void)setUserInformationWithProfilePictureFileName:(NSString *)fileName {
+    if (self.user.profilePic == nil) {
+        self.profilePictureImageView.image = [UIImage imageNamed:@"profile_default"];
+    } else {
+//        fileName = self.user.profilePic;
+        self.profilePictureImageView.image = [UIImage imageNamed:fileName];
+    }
+
+    if (self.user.textDescription.length > 0) {
+        self.descriptionTextView.text = self.user.textDescription;
+    } else {
+        self.descriptionTextView.text = @"Enter description";
+    }
+
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
-    self.descriptionTextField.text = self.user.textDescription;
-    [self.editButton isEnabled];
-    [self.doneButton isHidden];
+    self.isEditingProfile = false;
+    self.editButton.hidden = false;
+    self.editButton.enabled = true;
+    self.doneButton.hidden = true;
+    self.doneButton.enabled = false;
+    self.descriptionTextView.userInteractionEnabled = false;
+    self.descriptionTextView.editable = false;
 }
 
 -(void)switchEditDoneButtons {
@@ -67,13 +84,17 @@
         self.editButton.enabled = false;
         self.doneButton.hidden = false;
         self.doneButton.enabled = true;
-        self.descriptionTextField.userInteractionEnabled = true;
+        self.profilePictureImageView.userInteractionEnabled = true;
+        self.descriptionTextView.userInteractionEnabled = true;
+        self.descriptionTextView.editable = true;
     } else {
         self.editButton.hidden = false;
         self.editButton.enabled = true;
         self.doneButton.hidden = true;
         self.doneButton.enabled = false;
-        self.descriptionTextField.userInteractionEnabled = false;
+        self.profilePictureImageView.userInteractionEnabled = false;
+        self.descriptionTextView.userInteractionEnabled = false;
+        self.descriptionTextView.editable = false;
     }
 }
 
@@ -81,8 +102,8 @@
 #pragma mark -
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePhotosID" forIndexPath:indexPath];
-    // note to self: replace with custom cell/create custom cell class
+    UserPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePhotosID" forIndexPath:indexPath];
+
     return cell;
 }
 
@@ -101,19 +122,26 @@
 - (IBAction)onDoneButtonPressed:(UIButton *)sender {
     self.isEditingProfile = false;
     [self switchEditDoneButtons];
-    [self.descriptionTextField resignFirstResponder];
-    self.user.textDescription = self.descriptionTextField.text;
+    [self.descriptionTextView resignFirstResponder];
+    if (self.descriptionTextView.text.length > 0) {
+        self.user.textDescription = self.descriptionTextView.text;
+        [self.user setValue:self.descriptionTextView.text forKey:@"textDescription"];
+        [self.moc save:nil];
+    }
 }
 
 - (IBAction)onPhotosButtonPressed:(UIButton *)sender {
+    CameraViewController *cameraVC = [self.storyboard instantiateViewControllerWithIdentifier:@"cameraVC"];
+    [self.navigationController pushViewController:cameraVC animated:YES];
+    cameraVC.moc = self.moc;
+    cameraVC.user = self.user;
+    cameraVC.photos = self.photos;
 }
 
 - (IBAction)onFriendsButtonPressed:(UIButton *)sender {
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    CameraViewController *cVC = segue.destinationViewController;
-    cVC.user = self.user;
 }
 
 @end

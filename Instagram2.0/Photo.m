@@ -15,7 +15,6 @@
 
 @dynamic likesNumber;
 @dynamic name;
-@dynamic urlString;
 @dynamic username;
 @dynamic whenTaken;
 @dynamic image;
