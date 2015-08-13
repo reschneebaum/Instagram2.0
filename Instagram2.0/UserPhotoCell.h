@@ -17,6 +17,6 @@
 @interface UserPhotoCell : UICollectionViewCell
 
 @property (nonatomic, assign) id <UserPhotoCellDelegate> delegate;
-@property UIImage *cellImage;
+@property (weak, nonatomic) IBOutlet UIImageView *cellImage;
 
 @end

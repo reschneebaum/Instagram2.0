@@ -45,21 +45,54 @@
     NSLog(@"%@", self.user.lastName);
 
     NSMutableArray *tempImages = [NSMutableArray new];
-    UIImage *photo1 = [UIImage imageNamed:@"4.1.03"];
-    [tempImages addObject:photo1];
-    UIImage *photo2 = [UIImage imageNamed:@"4.1.05"];
-    [tempImages addObject:photo2];
-    UIImage *photo3 = [UIImage imageNamed:@"4.1.07"];
-    [tempImages addObject:photo3];
-    UIImage *photo4 = [UIImage imageNamed:@"4.2.01"];
-    [tempImages addObject:photo4];
-    UIImage *photo5 = [UIImage imageNamed:@"4.2.03"];
-    [tempImages addObject:photo5];
+    UIImage *image1 = [UIImage imageNamed:@"image1"];
+    [tempImages addObject:image1];
+    UIImage *image2 = [UIImage imageNamed:@"image2"];
+    [tempImages addObject:image2];
+    UIImage *image3 = [UIImage imageNamed:@"image3"];
+    [tempImages addObject:image3];
+    UIImage *image4 = [UIImage imageNamed:@"image4"];
+    [tempImages addObject:image4];
+    UIImage *image5 = [UIImage imageNamed:@"image5"];
+    [tempImages addObject:image5];
+    UIImage *image6 = [UIImage imageNamed:@"image6"];
+    [tempImages addObject:image6];
+    UIImage *image7 = [UIImage imageNamed:@"image7"];
+    [tempImages addObject:image7];
+    UIImage *image8 = [UIImage imageNamed:@"image8"];
+    [tempImages addObject:image8];
+    UIImage *image9 = [UIImage imageNamed:@"image9"];
+    [tempImages addObject:image9];
+    UIImage *image10 = [UIImage imageNamed:@"image10"];
+    [tempImages addObject:image10];
 
     self.testPhotos = [NSArray arrayWithArray:tempImages];
+    for (UIImage *image in self.testPhotos) {
+        NSData *imageData = UIImagePNGRepresentation(image);
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"cached"]];
+
+        NSLog((@"pre writing to file"));
+        if (![imageData writeToFile:imagePath atomically:NO]) {
+            NSLog((@"Failed to cache image data to disk"));
+        } else {
+            NSLog(@"the cachedImagedPath is %@",imagePath);
+        }
+
+        NSMutableArray *photoUrlStrings = [NSMutableArray new];
+        [photoUrlStrings addObject:imagePath];
+        for (NSString *urlString in photoUrlStrings) {
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:self.moc];
+            Photo *photo = [[Photo alloc]initWithEntity:entity insertIntoManagedObjectContext:self.moc];
+            [photo setValue:[NSString stringWithFormat:@"%@", urlString] forKey:@"photo"];
+        }
+        [self.moc save:nil];
+
+    }
 
     [self setUserInformation];
-    [self loadOwnPhotos];
+//    [self loadOwnPhotos];
 }
 
 -(void)loadOwnPhotos {
@@ -73,17 +106,19 @@
     }
 }
 
-//-(void)storePhoto:(UIImage *)image withFileName:(NSString *)fileName {
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-//    NSString *libraryDirectory = [paths objectAtIndex:0];
-//    NSString *path = [libraryDirectory stringByAppendingPathComponent:fileName];
-//    NSData *imageData = UIImagePNGRepresentation(image);
-//    [imageData writeToFile:path atomically:YES];
-//    Photo *photo = [Photo new];
-//    photo.name = fileName;
-//    self.photo = photo;
-//    [self.photo setValue:fileName forKey:@"name"];
-//}
+-(void)storePhoto:(UIImage *)image withFileName:(NSString *)fileName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *libraryDirectory = [paths objectAtIndex:0];
+    NSString *path = [libraryDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", fileName]];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [imageData writeToFile:path atomically:YES];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:self.moc];
+    Photo *photo = [[Photo alloc]initWithEntity:entity insertIntoManagedObjectContext:self.moc];
+    self.photo = photo;
+    self.photo.name = [NSString stringWithFormat:@"%@", fileName];
+    [self.photo setValue:[NSString stringWithFormat:@"%@", fileName] forKey:@"name"];
+    NSLog(@"%@", fileName);
+}
 
 -(void)storeProfilePic:(UIImage *)image withFileName:(NSString *)fileName {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
@@ -95,7 +130,6 @@
     self.user.profilePic = fileName;
     [self.user setValue:fileName forKey:@"profilePic"];
     [self.moc save:nil];
-    NSLog(@"%@", self.user.profilePic);
 }
 
 -(void)setUserInformation {
@@ -105,7 +139,6 @@
         self.profilePictureImageView.image = [UIImage imageNamed:self.user.profilePic];
     }
     [self storeProfilePic:self.profilePictureImageView.image withFileName:self.user.profilePic];
-    NSLog(@"%@", self.user.profilePic);
 
     if (self.user.textDescription.length > 0) {
         self.descriptionTextView.text = self.user.textDescription;
@@ -152,10 +185,10 @@
 #pragma mark - UICollectionView data source methods
 #pragma mark -
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+-(UserPhotoCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UserPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePhotosID" forIndexPath:indexPath];
     cell.delegate = self;
-    cell.cellImage = self.testPhotos[indexPath.row];
+    cell.cellImage.image = self.testPhotos[indexPath.row];
 
     return cell;
 }
@@ -165,7 +198,7 @@
     [self.navigationController pushViewController:detailProfileVC animated:YES];
 }
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+-(NSInteger)collectionView:(UserPhotoCell *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.testPhotos.count;
 }
 

@@ -150,6 +150,7 @@
                                         </view>
                                         <gestureRecognizers/>
                                         <connections>
+                                            <outlet property="cellImage" destination="7yN-rc-el3" id="MdF-cG-uV3"/>
                                             <outletCollection property="gestureRecognizers" destination="9ED-Hb-xaI" appends="YES" id="JlP-VD-pHT"/>
                                         </connections>
                                     </collectionViewCell>
