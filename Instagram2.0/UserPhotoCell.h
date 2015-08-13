@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol UserPhotoCellDelegate <NSObject>
+
+-(void)userPhotoCell:(id)cell isSelectedWithTap:(UITapGestureRecognizer *)sender;
+
+@end
+
 @interface UserPhotoCell : UICollectionViewCell
+
+@property (nonatomic, assign) id <UserPhotoCellDelegate> delegate;
 
 @end

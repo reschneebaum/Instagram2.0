@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "Photo.h"
 
 @interface ProfileViewController : UIViewController
 
 @property User *user;
 @property NSArray *users;
 @property NSManagedObjectContext *moc;
+@property Photo *photo;
 
 @end

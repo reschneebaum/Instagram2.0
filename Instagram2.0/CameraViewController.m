@@ -45,8 +45,8 @@
 
 -(void)checkForAndLoadPhotos {
     NSFetchRequest *photosRequest = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-    photosRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos == %@", self.user];
-    NSSortDescriptor *userPhotosSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"username" ascending:true];
+    photosRequest.predicate = [NSPredicate predicateWithFormat:@"isUserPhoto == %@", self.user];
+    NSSortDescriptor *userPhotosSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
     photosRequest.sortDescriptors = @[userPhotosSortDescriptor];
     self.photos = [self.moc executeFetchRequest:photosRequest error:nil];
     if (self.photos.count == 0) {

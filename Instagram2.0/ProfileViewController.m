@@ -41,26 +41,73 @@
     NSLog(@"%@", self.user.firstName);
     NSLog(@"%@", self.user.lastName);
 
-    [self setUserInformationWithProfilePictureFileName:self.user.profilePic];
-    [self loadOwnPhotos];
+    NSMutableArray *tempImages = [NSMutableArray new];
+    Photo *photo1 = [Photo new];
+    photo1.image = @"4.1.03";
+    [tempImages addObject:photo1.image];
+    Photo *photo2 = [Photo new];
+    photo1.image = @"4.1.05";
+    [tempImages addObject:photo2.image];
+    Photo *photo3 = [Photo new];
+    photo1.image = @"4.1.07";
+    [tempImages addObject:photo3.image];
+    Photo *photo4 = [Photo new];
+    photo1.image = @"4.2.01";
+    [tempImages addObject:photo4.image];
+    Photo *photo5 = [Photo new];
+    photo1.image = @"4.2.03";
+    [tempImages addObject:photo5.image];
+
+    self.photos = [NSArray arrayWithArray:tempImages];
+
+    [self setUserInformation];
+//    [self loadOwnPhotos];
 }
 
--(void)loadOwnPhotos {
-    NSFetchRequest *userPhotoRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-    userPhotoRequest.predicate = [NSPredicate predicateWithFormat:@"isUserPhoto == %@", self.user];
-    NSSortDescriptor *userPhotoSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
-    userPhotoRequest.sortDescriptors = @[userPhotoSortDescriptor];
-    self.photos = [self.moc executeFetchRequest:userPhotoRequest error:nil];
-    NSLog(@"%@, %@", [self.photos valueForKey:@"username"], [self.photos valueForKey:@"image"]);
+//-(void)loadOwnPhotos {
+//    NSFetchRequest *userPhotoRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+//    userPhotoRequest.predicate = [NSPredicate predicateWithFormat:@"isUserPhoto == %@", self.user];
+//    NSSortDescriptor *userPhotoSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
+//    userPhotoRequest.sortDescriptors = @[userPhotoSortDescriptor];
+//    self.photos = [self.moc executeFetchRequest:userPhotoRequest error:nil];
+//    if (self.photos.count > 0) {
+//        NSLog(@"%@, %@", [self.photos valueForKey:@"username"], [self.photos valueForKey:@"image"]);
+//    }
+//}
+
+-(void)storePhoto:(UIImage *)image withFileName:(NSString *)fileName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *libraryDirectory = [paths objectAtIndex:0];
+    NSString *path = [libraryDirectory stringByAppendingPathComponent:fileName];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [imageData writeToFile:path atomically:YES];
+    Photo *photo = [Photo new];
+    photo.name = fileName;
+    self.photo = photo;
+    [self.photo setValue:fileName forKey:@"name"];
 }
 
--(void)setUserInformationWithProfilePictureFileName:(NSString *)fileName {
+-(void)storeProfilePic:(UIImage *)image withFileName:(NSString *)fileName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *libraryDirectory = [paths objectAtIndex:0];
+    NSString *path = [libraryDirectory stringByAppendingPathComponent:fileName];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [imageData writeToFile:path atomically:YES];
+    image = [UIImage imageNamed:fileName];
+    self.user.profilePic = fileName;
+    [self.user setValue:fileName forKey:@"profilePic"];
+    [self.moc save:nil];
+    NSLog(@"%@", self.user.profilePic);
+}
+
+-(void)setUserInformation {
     if (self.user.profilePic == nil) {
         self.profilePictureImageView.image = [UIImage imageNamed:@"profile_default"];
     } else {
-//        fileName = self.user.profilePic;
-        self.profilePictureImageView.image = [UIImage imageNamed:fileName];
+        self.profilePictureImageView.image = [UIImage imageNamed:self.user.profilePic];
     }
+    [self storeProfilePic:self.profilePictureImageView.image withFileName:self.user.profilePic];
+    NSLog(@"%@", self.user.profilePic);
 
     if (self.user.textDescription.length > 0) {
         self.descriptionTextView.text = self.user.textDescription;
