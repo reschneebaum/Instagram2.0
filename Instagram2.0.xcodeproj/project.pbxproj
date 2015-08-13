@@ -115,27 +115,13 @@
 			children = (
 				C403443D1B794477000383DB /* AppDelegate.h */,
 				C403443E1B794477000383DB /* AppDelegate.m */,
-				C40344431B794477000383DB /* LoginViewController.h */,
-				C40344441B794477000383DB /* LoginViewController.m */,
-				C40344971B7A6338000383DB /* ProfileViewController.h */,
-				C40344981B7A6338000383DB /* ProfileViewController.m */,
-				C403449A1B7A6347000383DB /* NewsFeedViewController.h */,
-				C403449B1B7A6347000383DB /* NewsFeedViewController.m */,
-				C403449D1B7A6350000383DB /* CameraViewController.h */,
-				C403449E1B7A6350000383DB /* CameraViewController.m */,
-				C40344A01B7A635A000383DB /* SearchViewController.h */,
-				C40344A11B7A635A000383DB /* SearchViewController.m */,
-				C40344A31B7A636E000383DB /* FriendProfileViewController.h */,
-				C40344A41B7A636E000383DB /* FriendProfileViewController.m */,
-				FD8133BD1B7A944300E48BCE /* DetailProfileImageViewController.h */,
-				FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */,
 				C40344461B794477000383DB /* Main.storyboard */,
-				C4C3C9EB1B7CC8CB001FED3E /* UserPhotoCell.h */,
-				C4C3C9EC1B7CC8CB001FED3E /* UserPhotoCell.m */,
+				C4C3CA2A1B7D1DB0001FED3E /* ViewControllers */,
+				C4C3CA2B1B7D1DC6001FED3E /* Custom Classes */,
+				C40344651B794A2F000383DB /* Model Objects */,
 				C40344491B794477000383DB /* Images.xcassets */,
 				C403444B1B794477000383DB /* LaunchScreen.xib */,
 				C40344401B794477000383DB /* Instagram2_0.xcdatamodeld */,
-				C40344651B794A2F000383DB /* Model Objects */,
 				C40344391B794477000383DB /* Supporting Files */,
 			);
 			path = Instagram2.0;
@@ -178,6 +164,36 @@
 				C40344F51B7C2F2D000383DB /* User.m */,
 			);
 			name = "Model Objects";
+			sourceTree = "<group>";
+		};
+		C4C3CA2A1B7D1DB0001FED3E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C40344431B794477000383DB /* LoginViewController.h */,
+				C40344441B794477000383DB /* LoginViewController.m */,
+				C40344971B7A6338000383DB /* ProfileViewController.h */,
+				C40344981B7A6338000383DB /* ProfileViewController.m */,
+				C403449A1B7A6347000383DB /* NewsFeedViewController.h */,
+				C403449B1B7A6347000383DB /* NewsFeedViewController.m */,
+				C403449D1B7A6350000383DB /* CameraViewController.h */,
+				C403449E1B7A6350000383DB /* CameraViewController.m */,
+				C40344A01B7A635A000383DB /* SearchViewController.h */,
+				C40344A11B7A635A000383DB /* SearchViewController.m */,
+				C40344A31B7A636E000383DB /* FriendProfileViewController.h */,
+				C40344A41B7A636E000383DB /* FriendProfileViewController.m */,
+				FD8133BD1B7A944300E48BCE /* DetailProfileImageViewController.h */,
+				FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C4C3CA2B1B7D1DC6001FED3E /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C4C3C9EB1B7CC8CB001FED3E /* UserPhotoCell.h */,
+				C4C3C9EC1B7CC8CB001FED3E /* UserPhotoCell.m */,
+			);
+			name = "Custom Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

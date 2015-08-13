@@ -148,6 +148,10 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="9ED-Hb-xaI" appends="YES" id="JlP-VD-pHT"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -293,6 +297,14 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Gtr-xi-R3Z"/>
                                 </items>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85A-EN-z8J">
+                                <rect key="frame" x="16" y="78" width="115" height="22"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="change profile picture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -332,6 +344,7 @@
                         <barButtonItem key="rightBarButtonItem" title="News Feed" id="3j8-ey-D02"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="changeProfilePicButton" destination="85A-EN-z8J" id="pKQ-ob-IbW"/>
                         <outlet property="descriptionTextView" destination="9w0-9Q-1Ek" id="U5A-vA-IbC"/>
                         <outlet property="doneButton" destination="vGQ-GC-oi5" id="X9g-jg-c3t"/>
                         <outlet property="editButton" destination="eYH-Lz-KHm" id="sP2-Yj-g51"/>
@@ -343,13 +356,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxS-45-h09" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9ED-Hb-xaI"/>
             </objects>
             <point key="canvasLocation" x="672" y="222"/>
         </scene>
         <!--Detail Profile Image View Controller-->
         <scene sceneID="dgy-l2-ihC">
             <objects>
-                <viewController id="mTV-hB-djD" customClass="DetailProfileImageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailProfileVC" id="mTV-hB-djD" customClass="DetailProfileImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YQb-A4-E0T"/>
                         <viewControllerLayoutGuide type="bottom" id="shz-Mq-SQJ"/>

@@ -10,20 +10,23 @@
 #import "AppDelegate.h"
 #import "ProfileViewController.h"
 #import "CameraViewController.h"
+#import "DetailProfileImageViewController.h"
 #import "UserPhotoCell.h"
 #import "User.h"
 #import "Photo.h"
 
-@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UserPhotoCellDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureImageView;
 @property (weak, nonatomic) IBOutlet UICollectionView *profileCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *changeProfilePicButton;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIButton *photosButton;
 @property (weak, nonatomic) IBOutlet UIButton *friendsButton;
 @property NSArray *photos;
+@property NSArray *testPhotos;
 @property BOOL isEditingProfile;
 
 @end
@@ -42,50 +45,45 @@
     NSLog(@"%@", self.user.lastName);
 
     NSMutableArray *tempImages = [NSMutableArray new];
-    Photo *photo1 = [Photo new];
-    photo1.image = @"4.1.03";
-    [tempImages addObject:photo1.image];
-    Photo *photo2 = [Photo new];
-    photo1.image = @"4.1.05";
-    [tempImages addObject:photo2.image];
-    Photo *photo3 = [Photo new];
-    photo1.image = @"4.1.07";
-    [tempImages addObject:photo3.image];
-    Photo *photo4 = [Photo new];
-    photo1.image = @"4.2.01";
-    [tempImages addObject:photo4.image];
-    Photo *photo5 = [Photo new];
-    photo1.image = @"4.2.03";
-    [tempImages addObject:photo5.image];
+    UIImage *photo1 = [UIImage imageNamed:@"4.1.03"];
+    [tempImages addObject:photo1];
+    UIImage *photo2 = [UIImage imageNamed:@"4.1.05"];
+    [tempImages addObject:photo2];
+    UIImage *photo3 = [UIImage imageNamed:@"4.1.07"];
+    [tempImages addObject:photo3];
+    UIImage *photo4 = [UIImage imageNamed:@"4.2.01"];
+    [tempImages addObject:photo4];
+    UIImage *photo5 = [UIImage imageNamed:@"4.2.03"];
+    [tempImages addObject:photo5];
 
-    self.photos = [NSArray arrayWithArray:tempImages];
+    self.testPhotos = [NSArray arrayWithArray:tempImages];
 
     [self setUserInformation];
-//    [self loadOwnPhotos];
+    [self loadOwnPhotos];
 }
 
-//-(void)loadOwnPhotos {
-//    NSFetchRequest *userPhotoRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-//    userPhotoRequest.predicate = [NSPredicate predicateWithFormat:@"isUserPhoto == %@", self.user];
-//    NSSortDescriptor *userPhotoSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
-//    userPhotoRequest.sortDescriptors = @[userPhotoSortDescriptor];
-//    self.photos = [self.moc executeFetchRequest:userPhotoRequest error:nil];
-//    if (self.photos.count > 0) {
-//        NSLog(@"%@, %@", [self.photos valueForKey:@"username"], [self.photos valueForKey:@"image"]);
-//    }
+-(void)loadOwnPhotos {
+    NSFetchRequest *userPhotoRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+    userPhotoRequest.predicate = [NSPredicate predicateWithFormat:@"isUserPhoto == %@", self.user];
+    NSSortDescriptor *userPhotoSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
+    userPhotoRequest.sortDescriptors = @[userPhotoSortDescriptor];
+    self.photos = [self.moc executeFetchRequest:userPhotoRequest error:nil];
+    if (self.photos.count > 0) {
+        NSLog(@"%@, %@", [self.photos valueForKey:@"username"], [self.photos valueForKey:@"image"]);
+    }
+}
+
+//-(void)storePhoto:(UIImage *)image withFileName:(NSString *)fileName {
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+//    NSString *libraryDirectory = [paths objectAtIndex:0];
+//    NSString *path = [libraryDirectory stringByAppendingPathComponent:fileName];
+//    NSData *imageData = UIImagePNGRepresentation(image);
+//    [imageData writeToFile:path atomically:YES];
+//    Photo *photo = [Photo new];
+//    photo.name = fileName;
+//    self.photo = photo;
+//    [self.photo setValue:fileName forKey:@"name"];
 //}
-
--(void)storePhoto:(UIImage *)image withFileName:(NSString *)fileName {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *libraryDirectory = [paths objectAtIndex:0];
-    NSString *path = [libraryDirectory stringByAppendingPathComponent:fileName];
-    NSData *imageData = UIImagePNGRepresentation(image);
-    [imageData writeToFile:path atomically:YES];
-    Photo *photo = [Photo new];
-    photo.name = fileName;
-    self.photo = photo;
-    [self.photo setValue:fileName forKey:@"name"];
-}
 
 -(void)storeProfilePic:(UIImage *)image withFileName:(NSString *)fileName {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
@@ -123,6 +121,8 @@
     self.doneButton.enabled = false;
     self.descriptionTextView.userInteractionEnabled = false;
     self.descriptionTextView.editable = false;
+    self.changeProfilePicButton.enabled = false;
+    self.changeProfilePicButton.hidden = true;
 }
 
 -(void)switchEditDoneButtons {
@@ -134,6 +134,8 @@
         self.profilePictureImageView.userInteractionEnabled = true;
         self.descriptionTextView.userInteractionEnabled = true;
         self.descriptionTextView.editable = true;
+        self.changeProfilePicButton.enabled = true;
+        self.changeProfilePicButton.hidden = false;
     } else {
         self.editButton.hidden = false;
         self.editButton.enabled = true;
@@ -142,6 +144,8 @@
         self.profilePictureImageView.userInteractionEnabled = false;
         self.descriptionTextView.userInteractionEnabled = false;
         self.descriptionTextView.editable = false;
+        self.changeProfilePicButton.enabled = false;
+        self.changeProfilePicButton.hidden = true;
     }
 }
 
@@ -150,23 +154,30 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UserPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePhotosID" forIndexPath:indexPath];
+    cell.delegate = self;
+    cell.cellImage = self.testPhotos[indexPath.row];
 
     return cell;
 }
 
+-(void)userPhotoCell:(UserPhotoCell *)cell isSelectedWithTap:(UITapGestureRecognizer *)sender {
+    DetailProfileImageViewController *detailProfileVC =[self.storyboard instantiateViewControllerWithIdentifier:@"detailProfileVC"];
+    [self.navigationController pushViewController:detailProfileVC animated:YES];
+}
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.photos.count;
+    return self.testPhotos.count;
 }
 
 
 #pragma mark - space for IBActions in case needed
 
-- (IBAction)onEditButtonPressed:(UIButton *)sender {
+-(IBAction)onEditButtonPressed:(UIButton *)sender {
     self.isEditingProfile = true;
     [self switchEditDoneButtons];
 }
 
-- (IBAction)onDoneButtonPressed:(UIButton *)sender {
+-(IBAction)onDoneButtonPressed:(UIButton *)sender {
     self.isEditingProfile = false;
     [self switchEditDoneButtons];
     [self.descriptionTextView resignFirstResponder];
