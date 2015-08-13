@@ -10,4 +10,6 @@
 
 @interface SearchViewController : UIViewController
 
+@property NSManagedObjectContext *moc;
+
 @end

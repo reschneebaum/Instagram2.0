@@ -10,4 +10,6 @@
 
 @interface NewsFeedViewController : UIViewController
 
+@property NSManagedObjectContext *moc;
+
 @end

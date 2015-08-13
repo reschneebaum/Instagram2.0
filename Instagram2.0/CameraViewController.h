@@ -13,6 +13,7 @@
 
 @property User *user;
 @property NSArray *photos;
+@property NSManagedObjectContext *moc;
 
 - (IBAction)TakePhoto;
 - (IBAction)ChooseExisting;

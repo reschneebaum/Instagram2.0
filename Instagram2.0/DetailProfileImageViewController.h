@@ -10,6 +10,6 @@
 
 @interface DetailProfileImageViewController : UIViewController
 
--(IBAction)alertAction;
+@property NSManagedObjectContext *moc;
 
 @end

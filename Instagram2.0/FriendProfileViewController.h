@@ -10,4 +10,6 @@
 
 @interface FriendProfileViewController : UIViewController
 
+@property NSManagedObjectContext *moc;
+
 @end
