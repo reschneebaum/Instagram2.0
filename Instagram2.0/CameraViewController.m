@@ -43,17 +43,17 @@
     self.image = [UIImage imageNamed:@"profile_default"];
 }
 
-//-(void)checkForAndLoadPhotos {
-//    NSFetchRequest *photosRequest = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-//    photosRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos == %@", self.user];
-//    NSSortDescriptor *userPhotosSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"username" ascending:true];
-//    photosRequest.sortDescriptors = @[userPhotosSortDescriptor];
-//    self.photos = [self.moc executeFetchRequest:photosRequest error:nil];
-//    if (self.photos.count == 0) {
-//        NSLog(@"no photos in array");
-//        self.arePhotos = false;
-//    }
-//}
+-(void)checkForAndLoadPhotos {
+    NSFetchRequest *photosRequest = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+    photosRequest.predicate = [NSPredicate predicateWithFormat:@"userPhotos == %@", self.user];
+    NSSortDescriptor *userPhotosSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"username" ascending:true];
+    photosRequest.sortDescriptors = @[userPhotosSortDescriptor];
+    self.photos = [self.moc executeFetchRequest:photosRequest error:nil];
+    if (self.photos.count == 0) {
+        NSLog(@"no photos in array");
+        self.arePhotos = false;
+    }
+}
 
 -(void)storePhoto:(Photo *)photo withFileName:(NSString *)fileName {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
@@ -70,8 +70,7 @@
     self.picker =[[UIImagePickerController alloc] init];
     self.picker.delegate = self;
     [self.picker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    [self presentViewController:self.
-     picker animated:YES completion:NULL];
+    [self presentViewController:self.picker animated:YES completion:NULL];
 }
 
 - (IBAction)ChooseExisting {
