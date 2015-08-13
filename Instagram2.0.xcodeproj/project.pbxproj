@@ -20,9 +20,9 @@
 		C403449F1B7A6350000383DB /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C403449E1B7A6350000383DB /* CameraViewController.m */; };
 		C40344A21B7A635A000383DB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344A11B7A635A000383DB /* SearchViewController.m */; };
 		C40344A51B7A636E000383DB /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344A41B7A636E000383DB /* FriendProfileViewController.m */; };
-		C40344B81B7B82C0000383DB /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344B01B7B821B000383DB /* Friend.m */; };
-		C40344B91B7B82C3000383DB /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344B31B7B822E000383DB /* Photo.m */; };
-		C40344BA1B7B82C7000383DB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344B61B7B823A000383DB /* User.m */; };
+		C40344F61B7C2F2D000383DB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F51B7C2F2D000383DB /* User.m */; };
+		C40344F91B7C2F2D000383DB /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F81B7C2F2D000383DB /* Friend.m */; };
+		C40344FC1B7C2F2D000383DB /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344FB1B7C2F2D000383DB /* Photo.m */; };
 		FD8133BF1B7A944300E48BCE /* DetailProfileImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -61,12 +61,12 @@
 		C40344A11B7A635A000383DB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		C40344A31B7A636E000383DB /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendProfileViewController.h; sourceTree = "<group>"; };
 		C40344A41B7A636E000383DB /* FriendProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendProfileViewController.m; sourceTree = "<group>"; };
-		C40344AF1B7B821B000383DB /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
-		C40344B01B7B821B000383DB /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
-		C40344B21B7B822E000383DB /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		C40344B31B7B822E000383DB /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		C40344B51B7B823A000383DB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		C40344B61B7B823A000383DB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C40344F41B7C2F2D000383DB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C40344F51B7C2F2D000383DB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C40344F71B7C2F2D000383DB /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
+		C40344F81B7C2F2D000383DB /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
+		C40344FA1B7C2F2D000383DB /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		C40344FB1B7C2F2D000383DB /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		FD8133BD1B7A944300E48BCE /* DetailProfileImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailProfileImageViewController.h; sourceTree = "<group>"; };
 		FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailProfileImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,12 +165,12 @@
 		C40344651B794A2F000383DB /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
-				C40344AF1B7B821B000383DB /* Friend.h */,
-				C40344B01B7B821B000383DB /* Friend.m */,
-				C40344B21B7B822E000383DB /* Photo.h */,
-				C40344B31B7B822E000383DB /* Photo.m */,
-				C40344B51B7B823A000383DB /* User.h */,
-				C40344B61B7B823A000383DB /* User.m */,
+				C40344FA1B7C2F2D000383DB /* Photo.h */,
+				C40344FB1B7C2F2D000383DB /* Photo.m */,
+				C40344F71B7C2F2D000383DB /* Friend.h */,
+				C40344F81B7C2F2D000383DB /* Friend.m */,
+				C40344F41B7C2F2D000383DB /* User.h */,
+				C40344F51B7C2F2D000383DB /* User.m */,
 			);
 			name = "Model Objects";
 			sourceTree = "<group>";
@@ -281,13 +281,13 @@
 				C40344421B794477000383DB /* Instagram2_0.xcdatamodeld in Sources */,
 				C40344A21B7A635A000383DB /* SearchViewController.m in Sources */,
 				C403443F1B794477000383DB /* AppDelegate.m in Sources */,
+				C40344F91B7C2F2D000383DB /* Friend.m in Sources */,
 				C40344451B794477000383DB /* LoginViewController.m in Sources */,
 				C40344991B7A6338000383DB /* ProfileViewController.m in Sources */,
+				C40344F61B7C2F2D000383DB /* User.m in Sources */,
 				C40344A51B7A636E000383DB /* FriendProfileViewController.m in Sources */,
 				C403443C1B794477000383DB /* main.m in Sources */,
-				C40344B81B7B82C0000383DB /* Friend.m in Sources */,
-				C40344B91B7B82C3000383DB /* Photo.m in Sources */,
-				C40344BA1B7B82C7000383DB /* User.m in Sources */,
+				C40344FC1B7C2F2D000383DB /* Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

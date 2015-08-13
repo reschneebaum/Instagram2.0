@@ -1,9 +1,9 @@
 //
 //  Photo.m
-//  
+//  Instagram2.0
 //
-//  Created by Rachel Schneebaum on 8/11/15.
-//
+//  Created by Rachel Schneebaum on 8/12/15.
+//  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
 #import "Photo.h"
@@ -13,12 +13,13 @@
 
 @implementation Photo
 
-@dynamic urlString;
-@dynamic name;
 @dynamic likesNumber;
+@dynamic name;
+@dynamic urlString;
 @dynamic username;
 @dynamic whenTaken;
-@dynamic userPhotos;
-@dynamic friendPhotos;
+@dynamic image;
+@dynamic isFriendPhoto;
+@dynamic isUserPhoto;
 
 @end
