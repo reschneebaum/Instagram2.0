@@ -55,7 +55,7 @@
 
 -(void)setUserInformation {
 //  note to self: add profile pic property
-//    self.profilePictureIm ageView = self.user.profilePicture;
+//    self.profilePictureImageView = self.user.profilePicture;
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
     self.descriptionTextField.text = self.user.textDescription;
     [self.editButton isEnabled];
