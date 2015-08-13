@@ -68,12 +68,14 @@
         UITextField *passwordTextField = ((UITextField *)[alertController.textFields objectAtIndex:3]);
         self.passwordTextField.text = passwordTextField.text;
         NSManagedObject *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.moc];
-        [user setValue:firstNameTextField.text forKey:@"firstName"];
-        [user setValue:lastNameTextField.text forKey:@"lastName"];
-        [user setValue:usernameTextField.text forKey:@"username"];
-        [user setValue:passwordTextField.text forKey:@"password"];
-        [self.moc save:nil];
-        [self loadUsers];
+        if (usernameTextField.text.length > 0 && passwordTextField.text.length > 0) {
+            [user setValue:firstNameTextField.text forKey:@"firstName"];
+            [user setValue:lastNameTextField.text forKey:@"lastName"];
+            [user setValue:usernameTextField.text forKey:@"username"];
+            [user setValue:passwordTextField.text forKey:@"password"];
+            [self.moc save:nil];
+            [self loadUsers];
+        }
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
     }];
@@ -87,8 +89,10 @@
         if ([user.username isEqualToString:self.usernameTextField.text] && [user.password isEqualToString:self.passwordTextField.text]) {
             self.areUsers = true;
             self.user = user;
-            NSLog(@"self.user.username: %@", self.user.username);
-            NSLog(@"self.users.count: %lu", (unsigned long)self.users.count);
+        }
+
+        if ([user.username isEqualToString:self.usernameTextField.text] && ![user.password isEqualToString:self.passwordTextField.text]) {
+            NSLog(@"wrong password!");
         }
     }
 
@@ -114,12 +118,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"loginSegue"]) {
-//        ProfileViewController *profileVC = segue.destinationViewController;
-//        profileVC.user = self.user;
-//        profileVC.users = self.users;
 
-//    }
 }
 
 @end
