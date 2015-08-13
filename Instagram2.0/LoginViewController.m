@@ -45,6 +45,43 @@
     NSLog(@"%@, %@", [self.users valueForKey:@"username"], [self.users valueForKey:@"password"]);
 }
 
+-(void)presentAlertController:(UIAlertController *)alertController {
+    alertController = [UIAlertController alertControllerWithTitle:@"Create a new account" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"First Name";
+    }];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Last Name";
+    }];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Username";
+    }];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Password";
+        textField.secureTextEntry = true;
+    }];
+    UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UITextField *firstNameTextField = ((UITextField *)[alertController.textFields objectAtIndex:0]);
+        UITextField *lastNameTextField = ((UITextField *)[alertController.textFields objectAtIndex:1]);
+        UITextField *usernameTextField = ((UITextField *)[alertController.textFields objectAtIndex:2]);
+        self.usernameTextField.text = usernameTextField.text;
+        UITextField *passwordTextField = ((UITextField *)[alertController.textFields objectAtIndex:3]);
+        self.passwordTextField.text = passwordTextField.text;
+        NSManagedObject *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.moc];
+        [user setValue:firstNameTextField.text forKey:@"firstName"];
+        [user setValue:lastNameTextField.text forKey:@"lastName"];
+        [user setValue:usernameTextField.text forKey:@"username"];
+        [user setValue:passwordTextField.text forKey:@"password"];
+        [self.moc save:nil];
+        [self loadUsers];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    }];
+    [alertController addAction:addAction];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:true completion:nil];
+}
+
 - (IBAction)onLoginButtonPressed:(UIButton *)sender {
     for (User *user in self.users) {
         if ([user.username isEqualToString:self.usernameTextField.text] && [user.password isEqualToString:self.passwordTextField.text]) {
@@ -61,95 +98,28 @@
         [self.navigationController pushViewController:profileVC animated:YES];
         profileVC.user = self.user;
         profileVC.users = self.users;
-//        profileVC.moc = self.moc;
-//        [self performSegueWithIdentifier:@"loginSegue" sender:self];
+        profileVC.moc = self.moc;
         NSLog(@"self.user.username: %@", self.user.username);
         NSLog(@"self.users.count: %lu", (unsigned long)self.users.count);
     } else {
         NSLog(@"go to signup page!");
-        // note: create a helper method that returns nothing & takes UIAlertController as parameter
-        UIAlertController *wrongAccountAlert = [UIAlertController alertControllerWithTitle:@"Create a new account" message:nil preferredStyle:UIAlertControllerStyleAlert];
-            [wrongAccountAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                    textField.placeholder = @"First Name";
-            }];
-            [wrongAccountAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                    textField.placeholder = @"Last Name";
-            }];
-            [wrongAccountAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                    textField.placeholder = @"Username";
-            }];
-            [wrongAccountAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                    textField.placeholder = @"Password";
-                textField.secureTextEntry = true;
-            }];
-        UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            UITextField *firstNameTextField = ((UITextField *)[wrongAccountAlert.textFields objectAtIndex:0]);
-            UITextField *lastNameTextField = ((UITextField *)[wrongAccountAlert.textFields objectAtIndex:1]);
-            UITextField *usernameTextField = ((UITextField *)[wrongAccountAlert.textFields objectAtIndex:2]);
-            self.usernameTextField.text = usernameTextField.text;
-            UITextField *passwordTextField = ((UITextField *)[wrongAccountAlert.textFields objectAtIndex:3]);
-            self.passwordTextField.text = passwordTextField.text;
-            NSManagedObject *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.moc];
-            [user setValue:firstNameTextField.text forKey:@"firstName"];
-            [user setValue:lastNameTextField.text forKey:@"lastName"];
-            [user setValue:usernameTextField.text forKey:@"username"];
-            [user setValue:passwordTextField.text forKey:@"password"];
-            [self.moc save:nil];
-            [self loadUsers];
-        }];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        }];
-            [wrongAccountAlert addAction:addAction];
-            [wrongAccountAlert addAction:cancelAction];
-            [self presentViewController:wrongAccountAlert animated:true completion:nil];
+        UIAlertController *wrongAccountAlert = [UIAlertController new];
+        [self presentAlertController:wrongAccountAlert];
     }
 }
 
 - (IBAction)onCreateAccountButtonPressed:(UIButton *)sender {
-    // note: use helper method mentioned above
-    UIAlertController *createAccountAlert = [UIAlertController alertControllerWithTitle:@"Create a new account" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [createAccountAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"First Name";
-    }];
-    [createAccountAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"Last Name";
-    }];
-    [createAccountAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"Username";
-    }];
-    [createAccountAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"Password";
-        textField.secureTextEntry = true;
-    }];
-    UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        UITextField *firstNameTextField = ((UITextField *)[createAccountAlert.textFields objectAtIndex:0]);
-        UITextField *lastNameTextField = ((UITextField *)[createAccountAlert.textFields objectAtIndex:1]);
-        UITextField *usernameTextField = ((UITextField *)[createAccountAlert.textFields objectAtIndex:2]);
-        self.usernameTextField.text = usernameTextField.text;
-        UITextField *passwordTextField = ((UITextField *)[createAccountAlert.textFields objectAtIndex:3]);
-        self.passwordTextField.text = passwordTextField.text;
-        NSManagedObject *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.moc];
-        [user setValue:firstNameTextField.text forKey:@"firstName"];
-        [user setValue:lastNameTextField.text forKey:@"lastName"];
-        [user setValue:usernameTextField.text forKey:@"username"];
-        [user setValue:passwordTextField.text forKey:@"password"];
-        [self.moc save:nil];
-        [self loadUsers];
-    }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-    }];
-    [createAccountAlert addAction:addAction];
-    [createAccountAlert addAction:cancelAction];
-    [self presentViewController:createAccountAlert animated:true completion:nil];
+    UIAlertController *createAccountAlert = [UIAlertController new];
+    [self presentAlertController:createAccountAlert];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"loginSegue"]) {
+//    if ([segue.identifier isEqualToString:@"loginSegue"]) {
 //        ProfileViewController *profileVC = segue.destinationViewController;
 //        profileVC.user = self.user;
 //        profileVC.users = self.users;
 
-    }
+//    }
 }
 
 @end

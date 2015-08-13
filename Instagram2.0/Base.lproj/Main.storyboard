@@ -648,10 +648,10 @@
             </objects>
             <point key="canvasLocation" x="3590" y="-27"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--navController-->
         <scene sceneID="xa0-XK-pDb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HA1-dK-csF" sceneMemberID="viewController">
+                <navigationController title="navController" automaticallyAdjustsScrollViewInsets="NO" id="HA1-dK-csF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zGm-uk-Gyo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
