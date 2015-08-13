@@ -25,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *rotateCameraButton;
 @property (weak, nonatomic) IBOutlet UIButton *flashLightButton;
 @property UIColor *UIColor;
-@property NSManagedObjectContext *moc;
 @property Photo *photo;
 @property BOOL *arePhotos;
 
