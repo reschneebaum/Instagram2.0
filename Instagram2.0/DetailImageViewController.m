@@ -6,15 +6,15 @@
 //  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
-#import "DetailProfileImageViewController.h"
+#import "DetailImageViewController.h"
 #import "Photo.h"
-@interface DetailProfileImageViewController ()
+@interface DetailImageViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property Photo *photo;
 
 @end
 
-@implementation DetailProfileImageViewController
+@implementation DetailImageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

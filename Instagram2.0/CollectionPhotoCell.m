@@ -7,12 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailProfileImageViewController.h"
-#import "UserPhotoCell.h"
+#import "DetailImageViewController.h"
+#import "CollectionPhotoCell.h"
 #import "User.h"
 #import "Photo.h"
 
-@implementation UserPhotoCell
+@implementation CollectionPhotoCell
 
 -(IBAction)onImageTapped:(UITapGestureRecognizer *)sender {
     [self.delegate userPhotoCell:self isSelectedWithTap:sender];

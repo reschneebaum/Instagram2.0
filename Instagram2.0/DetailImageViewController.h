@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailProfileImageViewController : UIViewController
+@interface DetailImageViewController : UIViewController
 
 @property NSManagedObjectContext *moc;
 

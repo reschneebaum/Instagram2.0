@@ -23,8 +23,14 @@
 		C40344FD1B7C3AD9000383DB /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344FB1B7C2F2D000383DB /* Photo.m */; };
 		C40344FE1B7C3ADD000383DB /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F81B7C2F2D000383DB /* Friend.m */; };
 		C40344FF1B7C3AE1000383DB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F51B7C2F2D000383DB /* User.m */; };
-		C4C3C9ED1B7CC8CB001FED3E /* UserPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3C9EC1B7CC8CB001FED3E /* UserPhotoCell.m */; };
-		FD8133BF1B7A944300E48BCE /* DetailProfileImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */; };
+		C4C3C9ED1B7CC8CB001FED3E /* CollectionPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3C9EC1B7CC8CB001FED3E /* CollectionPhotoCell.m */; };
+		C4C3CA731B7E19D3001FED3E /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA721B7E19D3001FED3E /* CommentTableViewController.m */; };
+		C4C3CA761B7E1A10001FED3E /* ProfileIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA751B7E1A10001FED3E /* ProfileIcon.m */; };
+		C4C3CA791B7E1A45001FED3E /* PhotoDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA781B7E1A45001FED3E /* PhotoDetailCell.m */; };
+		C4C3CA7C1B7E1A4F001FED3E /* PhotoDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA7B1B7E1A4F001FED3E /* PhotoDetailCommentCell.m */; };
+		C4C3CA7F1B7E1A5B001FED3E /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA7E1B7E1A5B001FED3E /* CommentCell.m */; };
+		C4C3CA821B7E1ADB001FED3E /* UsernameButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA811B7E1ADB001FED3E /* UsernameButton.m */; };
+		FD8133BF1B7A944300E48BCE /* DetailImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8133BE1B7A944300E48BCE /* DetailImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,10 +74,22 @@
 		C40344F81B7C2F2D000383DB /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
 		C40344FA1B7C2F2D000383DB /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		C40344FB1B7C2F2D000383DB /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		C4C3C9EB1B7CC8CB001FED3E /* UserPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPhotoCell.h; sourceTree = "<group>"; };
-		C4C3C9EC1B7CC8CB001FED3E /* UserPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPhotoCell.m; sourceTree = "<group>"; };
-		FD8133BD1B7A944300E48BCE /* DetailProfileImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailProfileImageViewController.h; sourceTree = "<group>"; };
-		FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailProfileImageViewController.m; sourceTree = "<group>"; };
+		C4C3C9EB1B7CC8CB001FED3E /* CollectionPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionPhotoCell.h; sourceTree = "<group>"; };
+		C4C3C9EC1B7CC8CB001FED3E /* CollectionPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionPhotoCell.m; sourceTree = "<group>"; };
+		C4C3CA711B7E19D3001FED3E /* CommentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewController.h; sourceTree = "<group>"; };
+		C4C3CA721B7E19D3001FED3E /* CommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewController.m; sourceTree = "<group>"; };
+		C4C3CA741B7E1A10001FED3E /* ProfileIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileIcon.h; sourceTree = "<group>"; };
+		C4C3CA751B7E1A10001FED3E /* ProfileIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileIcon.m; sourceTree = "<group>"; };
+		C4C3CA771B7E1A45001FED3E /* PhotoDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailCell.h; sourceTree = "<group>"; };
+		C4C3CA781B7E1A45001FED3E /* PhotoDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailCell.m; sourceTree = "<group>"; };
+		C4C3CA7A1B7E1A4F001FED3E /* PhotoDetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailCommentCell.h; sourceTree = "<group>"; };
+		C4C3CA7B1B7E1A4F001FED3E /* PhotoDetailCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailCommentCell.m; sourceTree = "<group>"; };
+		C4C3CA7D1B7E1A5B001FED3E /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		C4C3CA7E1B7E1A5B001FED3E /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		C4C3CA801B7E1ADB001FED3E /* UsernameButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsernameButton.h; sourceTree = "<group>"; };
+		C4C3CA811B7E1ADB001FED3E /* UsernameButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsernameButton.m; sourceTree = "<group>"; };
+		FD8133BD1B7A944300E48BCE /* DetailImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailImageViewController.h; sourceTree = "<group>"; };
+		FD8133BE1B7A944300E48BCE /* DetailImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +199,10 @@
 				C40344A11B7A635A000383DB /* SearchViewController.m */,
 				C40344A31B7A636E000383DB /* FriendProfileViewController.h */,
 				C40344A41B7A636E000383DB /* FriendProfileViewController.m */,
-				FD8133BD1B7A944300E48BCE /* DetailProfileImageViewController.h */,
-				FD8133BE1B7A944300E48BCE /* DetailProfileImageViewController.m */,
+				FD8133BD1B7A944300E48BCE /* DetailImageViewController.h */,
+				FD8133BE1B7A944300E48BCE /* DetailImageViewController.m */,
+				C4C3CA711B7E19D3001FED3E /* CommentTableViewController.h */,
+				C4C3CA721B7E19D3001FED3E /* CommentTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -190,8 +210,18 @@
 		C4C3CA2B1B7D1DC6001FED3E /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C4C3C9EB1B7CC8CB001FED3E /* UserPhotoCell.h */,
-				C4C3C9EC1B7CC8CB001FED3E /* UserPhotoCell.m */,
+				C4C3C9EB1B7CC8CB001FED3E /* CollectionPhotoCell.h */,
+				C4C3C9EC1B7CC8CB001FED3E /* CollectionPhotoCell.m */,
+				C4C3CA771B7E1A45001FED3E /* PhotoDetailCell.h */,
+				C4C3CA781B7E1A45001FED3E /* PhotoDetailCell.m */,
+				C4C3CA7A1B7E1A4F001FED3E /* PhotoDetailCommentCell.h */,
+				C4C3CA7B1B7E1A4F001FED3E /* PhotoDetailCommentCell.m */,
+				C4C3CA7D1B7E1A5B001FED3E /* CommentCell.h */,
+				C4C3CA7E1B7E1A5B001FED3E /* CommentCell.m */,
+				C4C3CA801B7E1ADB001FED3E /* UsernameButton.h */,
+				C4C3CA811B7E1ADB001FED3E /* UsernameButton.m */,
+				C4C3CA741B7E1A10001FED3E /* ProfileIcon.h */,
+				C4C3CA751B7E1A10001FED3E /* ProfileIcon.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -297,11 +327,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40344FF1B7C3AE1000383DB /* User.m in Sources */,
-				FD8133BF1B7A944300E48BCE /* DetailProfileImageViewController.m in Sources */,
+				C4C3CA791B7E1A45001FED3E /* PhotoDetailCell.m in Sources */,
+				FD8133BF1B7A944300E48BCE /* DetailImageViewController.m in Sources */,
+				C4C3CA821B7E1ADB001FED3E /* UsernameButton.m in Sources */,
+				C4C3CA7F1B7E1A5B001FED3E /* CommentCell.m in Sources */,
+				C4C3CA761B7E1A10001FED3E /* ProfileIcon.m in Sources */,
 				C403449F1B7A6350000383DB /* CameraViewController.m in Sources */,
 				C403449C1B7A6347000383DB /* NewsFeedViewController.m in Sources */,
+				C4C3CA731B7E19D3001FED3E /* CommentTableViewController.m in Sources */,
 				C40344421B794477000383DB /* Instagram2_0.xcdatamodeld in Sources */,
-				C4C3C9ED1B7CC8CB001FED3E /* UserPhotoCell.m in Sources */,
+				C4C3C9ED1B7CC8CB001FED3E /* CollectionPhotoCell.m in Sources */,
+				C4C3CA7C1B7E1A4F001FED3E /* PhotoDetailCommentCell.m in Sources */,
 				C40344A21B7A635A000383DB /* SearchViewController.m in Sources */,
 				C403443F1B794477000383DB /* AppDelegate.m in Sources */,
 				C40344451B794477000383DB /* LoginViewController.m in Sources */,

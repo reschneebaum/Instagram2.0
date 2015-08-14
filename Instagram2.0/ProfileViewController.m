@@ -10,8 +10,8 @@
 #import "AppDelegate.h"
 #import "ProfileViewController.h"
 #import "CameraViewController.h"
-#import "DetailProfileImageViewController.h"
-#import "UserPhotoCell.h"
+#import "DetailImageViewController.h"
+#import "CollectionPhotoCell.h"
 #import "User.h"
 #import "Photo.h"
 
@@ -185,20 +185,20 @@
 #pragma mark - UICollectionView data source methods
 #pragma mark -
 
--(UserPhotoCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UserPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePhotosID" forIndexPath:indexPath];
+-(CollectionPhotoCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CollectionPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePhotosID" forIndexPath:indexPath];
     cell.delegate = self;
     cell.cellImage.image = self.testPhotos[indexPath.row];
 
     return cell;
 }
 
--(void)userPhotoCell:(UserPhotoCell *)cell isSelectedWithTap:(UITapGestureRecognizer *)sender {
-    DetailProfileImageViewController *detailProfileVC =[self.storyboard instantiateViewControllerWithIdentifier:@"detailProfileVC"];
+-(void)userPhotoCell:(CollectionPhotoCell *)cell isSelectedWithTap:(UITapGestureRecognizer *)sender {
+    DetailImageViewController *detailProfileVC =[self.storyboard instantiateViewControllerWithIdentifier:@"detailProfileVC"];
     [self.navigationController pushViewController:detailProfileVC animated:YES];
 }
 
--(NSInteger)collectionView:(UserPhotoCell *)collectionView numberOfItemsInSection:(NSInteger)section {
+-(NSInteger)collectionView:(CollectionPhotoCell *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.testPhotos.count;
 }
 
