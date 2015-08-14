@@ -14,11 +14,11 @@
 @interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property UIImagePickerController *picker;
-@property UIImage *image;
 @property IBOutlet UIImageView *imageView;
+@property UIImage *image;
 @property Photo *photo;
-@property BOOL *arePhotos;
 @property NSString *imagePath;
+@property BOOL *arePhotos;
 
 @end
 
@@ -30,7 +30,7 @@
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     self.moc = delegate.managedObjectContext;
 
-//    [self checkForAndLoadPhotos];
+    [self checkForAndLoadPhotos];
 
 //  testing photo storing
     self.image = [UIImage imageNamed:@"profile_default"];
@@ -65,19 +65,12 @@
     }
 }
 
--(void)storePhoto:(Photo *)photo fromImagePath:(NSString *)imagePath {
-
-}
-
--(void)storePhoto:(Photo *)photo withFileName:(NSString *)fileName {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *libraryDirectory = [paths objectAtIndex:0];
-    NSString *path = [libraryDirectory stringByAppendingPathComponent:fileName];
-    NSData *imageData = UIImagePNGRepresentation(self.image);
-    [imageData writeToFile:path atomically:YES];
-    photo.name = fileName;
-    self.photo = photo;
-    [self.photo setValue:fileName forKey:@"name"];
+-(void)storePhotoFromImagePath {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:self.moc];
+    Photo *photo = [[Photo alloc]initWithEntity:entity insertIntoManagedObjectContext:self.moc];
+    [photo setValue:self.imagePath forKey:@"image"];
+    [self.user addUserPhotosObject:photo];
+    [self.moc save:nil];
 }
 
 -(void)presentNoCameraAlert {
@@ -95,6 +88,7 @@
     self.image = info[UIImagePickerControllerOriginalImage];
     [self.imageView setImage:self.image];
     [self storeToDirectorySelectedImage:self.image];
+    [self storePhotoFromImagePath];
     [picker dismissViewControllerAnimated:true completion:nil];
 }
 
@@ -102,7 +96,7 @@
     [picker dismissViewControllerAnimated:true completion:nil];
 }
 
--(IBAction)takePhoto:(UIButton *)sender {
+-(IBAction)takePhoto:(id)sender {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController *picker = [UIImagePickerController new];
         picker.delegate = self;
@@ -114,7 +108,7 @@
     }
 }
 
--(IBAction)selectPhoto:(UIButton *)sender {
+- (IBAction)selectPhoto:(UIBarButtonItem *)sender {
     UIImagePickerController *picker = [UIImagePickerController new];
     picker.delegate = self;
     picker.allowsEditing = NO;
@@ -122,18 +116,9 @@
     [self presentViewController:picker animated:true completion:nil];
 }
 
+- (IBAction)onDismissButtonPressed:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
 
-
-
-
-
-//  testing photo storing
-//Photo *photo = [Photo new];
-//photo.image = @"profile_default";
-
-//  resume code
-//[self storePhoto:photo withFileName:photo.image];
-//[self.moc save:nil];
-//[self dismissViewControllerAnimated:YES completion:NULL];
 
 @end

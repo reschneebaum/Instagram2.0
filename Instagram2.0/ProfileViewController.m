@@ -117,7 +117,6 @@
     self.photo = photo;
     self.photo.name = [NSString stringWithFormat:@"%@", fileName];
     [self.photo setValue:[NSString stringWithFormat:@"%@", fileName] forKey:@"name"];
-    NSLog(@"%@", fileName);
 }
 
 -(void)storeProfilePic:(UIImage *)image withFileName:(NSString *)fileName {
