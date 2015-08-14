@@ -11,21 +11,14 @@
 #import "Photo.h"
 #import "User.h"
 
-@interface CameraViewController ()
+@interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
 @property UIImagePickerController *picker;
-@property UIImagePickerController *picker2;
 @property UIImage *image;
 @property IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIImageView *barbuttonbackground;
-@property (weak, nonatomic) IBOutlet UIButton *takePictureButton;
-@property (weak, nonatomic) IBOutlet UIButton *libraryButton;
-@property (weak, nonatomic) IBOutlet UIButton *cameraButton;
-@property (weak, nonatomic) IBOutlet UIButton *gridButton;
-@property (weak, nonatomic) IBOutlet UIButton *rotateCameraButton;
-@property (weak, nonatomic) IBOutlet UIButton *flashLightButton;
-@property UIColor *UIColor;
 @property Photo *photo;
 @property BOOL *arePhotos;
+@property NSString *imagePath;
 
 @end
 
@@ -43,6 +36,9 @@
     self.image = [UIImage imageNamed:@"profile_default"];
 }
 
+#pragma mark - photo storage
+#pragma mark -
+
 -(void)checkForAndLoadPhotos {
     NSFetchRequest *photosRequest = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
     photosRequest.predicate = [NSPredicate predicateWithFormat:@"isUserPhoto == %@", self.user];
@@ -53,6 +49,24 @@
         NSLog(@"no photos in array");
         self.arePhotos = false;
     }
+}
+
+-(void)storeToDirectorySelectedImage:(UIImage *)image {
+    NSData *imageData = UIImagePNGRepresentation(image);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    self.imagePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"cached"]];
+
+    NSLog((@"pre writing to file"));
+    if (![imageData writeToFile:self.imagePath atomically:NO]) {
+        NSLog((@"Failed to cache image data to disk"));
+    } else {
+        NSLog(@"the cachedImagedPath is %@",self.imagePath);
+    }
+}
+
+-(void)storePhoto:(Photo *)photo fromImagePath:(NSString *)imagePath {
+
 }
 
 -(void)storePhoto:(Photo *)photo withFileName:(NSString *)fileName {
@@ -66,41 +80,60 @@
     [self.photo setValue:fileName forKey:@"name"];
 }
 
-- (IBAction)TakePhoto {
-    self.picker =[[UIImagePickerController alloc] init];
-    self.picker.delegate = self;
-    [self.picker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    [self presentViewController:self.picker animated:YES completion:NULL];
+-(void)presentNoCameraAlert {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"No camera available on device" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    }];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:true completion:nil];
 }
 
-- (IBAction)ChooseExisting {
-    _picker2 =[[UIImagePickerController alloc] init];
-    self.picker2.delegate = self;
-    [self.picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    [self presentViewController:self.picker2 animated:YES completion:NULL];
-}
+#pragma mark - UIImagePickerController methods
+#pragma mark -
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-//    self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.image = info[UIImagePickerControllerOriginalImage];
     [self.imageView setImage:self.image];
+    [self storeToDirectorySelectedImage:self.image];
+    [picker dismissViewControllerAnimated:true completion:nil];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:true completion:nil];
+}
+
+-(IBAction)takePhoto:(UIButton *)sender {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *picker = [UIImagePickerController new];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:picker animated:true completion:nil];
+    } else {
+        [self presentNoCameraAlert];
+    }
+}
+
+-(IBAction)selectPhoto:(UIButton *)sender {
+    UIImagePickerController *picker = [UIImagePickerController new];
+    picker.delegate = self;
+    picker.allowsEditing = NO;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:true completion:nil];
+}
+
+
+
+
+
 
 //  testing photo storing
-    Photo *photo = [Photo new];
-    photo.image = @"profile_default";
+//Photo *photo = [Photo new];
+//photo.image = @"profile_default";
 
 //  resume code
-    [self storePhoto:photo withFileName:photo.image];
-    [self.moc save:nil];
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
--(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
-
-- (IBAction)onDoneButtonPressed:(UIButton *)sender {
-
-}
+//[self storePhoto:photo withFileName:photo.image];
+//[self.moc save:nil];
+//[self dismissViewControllerAnimated:YES completion:NULL];
 
 @end

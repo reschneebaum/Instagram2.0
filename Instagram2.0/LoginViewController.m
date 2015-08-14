@@ -90,12 +90,10 @@
             self.areUsers = true;
             self.user = user;
         }
-
         if ([user.username isEqualToString:self.usernameTextField.text] && ![user.password isEqualToString:self.passwordTextField.text]) {
             NSLog(@"wrong password!");
         }
     }
-
     if (self.areUsers) {
         NSLog(@"go to profile page!");
         ProfileViewController *profileVC=[self.storyboard instantiateViewControllerWithIdentifier:@"profileVC"];

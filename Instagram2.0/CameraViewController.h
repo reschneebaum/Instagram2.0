@@ -9,14 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
-@interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CameraViewController : UIViewController 
 
 @property User *user;
 @property NSArray *photos;
 @property NSManagedObjectContext *moc;
-
-- (IBAction)TakePhoto;
-- (IBAction)ChooseExisting;
-
 
 @end

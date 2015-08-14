@@ -85,7 +85,7 @@
         for (NSString *urlString in photoUrlStrings) {
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:self.moc];
             Photo *photo = [[Photo alloc]initWithEntity:entity insertIntoManagedObjectContext:self.moc];
-            [photo setValue:[NSString stringWithFormat:@"%@", urlString] forKey:@"photo"];
+//            [photo setValue:[NSString stringWithFormat:@"%@", urlString] forKey:@"photo"];
         }
         [self.moc save:nil];
 
