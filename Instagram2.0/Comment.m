@@ -1,20 +1,18 @@
 //
-//  Friend.m
+//  Comment.m
 //  Instagram2.0
 //
 //  Created by Rachel Schneebaum on 8/14/15.
 //  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
-#import "Friend.h"
+#import "Comment.h"
 #import "Photo.h"
-#import "User.h"
 
 
-@implementation Friend
+@implementation Comment
 
-@dynamic friendPhotos;
-@dynamic isFriendOf;
-@dynamic likes;
+@dynamic username;
+@dynamic onPhoto;
 
 @end

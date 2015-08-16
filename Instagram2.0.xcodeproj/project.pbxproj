@@ -20,9 +20,9 @@
 		C403449F1B7A6350000383DB /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C403449E1B7A6350000383DB /* CameraViewController.m */; };
 		C40344A21B7A635A000383DB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344A11B7A635A000383DB /* SearchViewController.m */; };
 		C40344A51B7A636E000383DB /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344A41B7A636E000383DB /* FriendProfileViewController.m */; };
-		C40344FD1B7C3AD9000383DB /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344FB1B7C2F2D000383DB /* Photo.m */; };
-		C40344FE1B7C3ADD000383DB /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F81B7C2F2D000383DB /* Friend.m */; };
-		C40344FF1B7C3AE1000383DB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C40344F51B7C2F2D000383DB /* User.m */; };
+		C42DDB7E1B7E688900CAAD15 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C42DDB7D1B7E688900CAAD15 /* ImageIO.framework */; };
+		C47CD1811B7E62DA0008B0F3 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C47CD1801B7E62DA0008B0F3 /* Photo.m */; };
+		C49C34361B7E4F0400F10600 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = C49C34351B7E4F0400F10600 /* Comment.m */; };
 		C4C3C9ED1B7CC8CB001FED3E /* CollectionPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3C9EC1B7CC8CB001FED3E /* CollectionPhotoCell.m */; };
 		C4C3CA731B7E19D3001FED3E /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA721B7E19D3001FED3E /* CommentTableViewController.m */; };
 		C4C3CA791B7E1A45001FED3E /* PhotoDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA781B7E1A45001FED3E /* PhotoDetailCell.m */; };
@@ -30,6 +30,8 @@
 		C4C3CA7F1B7E1A5B001FED3E /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA7E1B7E1A5B001FED3E /* CommentCell.m */; };
 		C4C3CA851B7E2273001FED3E /* EnterCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA841B7E2273001FED3E /* EnterCommentCell.m */; };
 		C4C3CA8E1B7E2556001FED3E /* UserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA8D1B7E2556001FED3E /* UserImageView.m */; };
+		C4C3CAA41B7E48BA001FED3E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CAA21B7E4457001FED3E /* User.m */; };
+		C4C3CAA61B7E48C3001FED3E /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C3CA9C1B7E4457001FED3E /* Friend.m */; };
 		FD8133BF1B7A944300E48BCE /* DetailImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8133BE1B7A944300E48BCE /* DetailImageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -68,12 +70,11 @@
 		C40344A11B7A635A000383DB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		C40344A31B7A636E000383DB /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendProfileViewController.h; sourceTree = "<group>"; };
 		C40344A41B7A636E000383DB /* FriendProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendProfileViewController.m; sourceTree = "<group>"; };
-		C40344F41B7C2F2D000383DB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		C40344F51B7C2F2D000383DB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		C40344F71B7C2F2D000383DB /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
-		C40344F81B7C2F2D000383DB /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
-		C40344FA1B7C2F2D000383DB /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		C40344FB1B7C2F2D000383DB /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		C42DDB7D1B7E688900CAAD15 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		C47CD17F1B7E62DA0008B0F3 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		C47CD1801B7E62DA0008B0F3 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		C49C34341B7E4F0400F10600 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		C49C34351B7E4F0400F10600 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		C4C3C9EB1B7CC8CB001FED3E /* CollectionPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionPhotoCell.h; sourceTree = "<group>"; };
 		C4C3C9EC1B7CC8CB001FED3E /* CollectionPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionPhotoCell.m; sourceTree = "<group>"; };
 		C4C3CA711B7E19D3001FED3E /* CommentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewController.h; sourceTree = "<group>"; };
@@ -88,6 +89,10 @@
 		C4C3CA841B7E2273001FED3E /* EnterCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterCommentCell.m; sourceTree = "<group>"; };
 		C4C3CA8C1B7E2556001FED3E /* UserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserImageView.h; sourceTree = "<group>"; };
 		C4C3CA8D1B7E2556001FED3E /* UserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserImageView.m; sourceTree = "<group>"; };
+		C4C3CA9B1B7E4457001FED3E /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
+		C4C3CA9C1B7E4457001FED3E /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
+		C4C3CAA11B7E4457001FED3E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C4C3CAA21B7E4457001FED3E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		FD8133BD1B7A944300E48BCE /* DetailImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailImageViewController.h; sourceTree = "<group>"; };
 		FD8133BE1B7A944300E48BCE /* DetailImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42DDB7E1B7E688900CAAD15 /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +119,7 @@
 		C403442D1B794477000383DB = {
 			isa = PBXGroup;
 			children = (
+				C42DDB7D1B7E688900CAAD15 /* ImageIO.framework */,
 				C40344381B794477000383DB /* Instagram2.0 */,
 				C40344551B794477000383DB /* Instagram2.0Tests */,
 				C40344371B794477000383DB /* Products */,
@@ -174,12 +181,14 @@
 		C40344651B794A2F000383DB /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
-				C40344FA1B7C2F2D000383DB /* Photo.h */,
-				C40344FB1B7C2F2D000383DB /* Photo.m */,
-				C40344F71B7C2F2D000383DB /* Friend.h */,
-				C40344F81B7C2F2D000383DB /* Friend.m */,
-				C40344F41B7C2F2D000383DB /* User.h */,
-				C40344F51B7C2F2D000383DB /* User.m */,
+				C4C3CAA11B7E4457001FED3E /* User.h */,
+				C4C3CAA21B7E4457001FED3E /* User.m */,
+				C4C3CA9B1B7E4457001FED3E /* Friend.h */,
+				C4C3CA9C1B7E4457001FED3E /* Friend.m */,
+				C47CD17F1B7E62DA0008B0F3 /* Photo.h */,
+				C47CD1801B7E62DA0008B0F3 /* Photo.m */,
+				C49C34341B7E4F0400F10600 /* Comment.h */,
+				C49C34351B7E4F0400F10600 /* Comment.m */,
 			);
 			name = "Model Objects";
 			sourceTree = "<group>";
@@ -326,7 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C40344FF1B7C3AE1000383DB /* User.m in Sources */,
+				C47CD1811B7E62DA0008B0F3 /* Photo.m in Sources */,
 				C4C3CA791B7E1A45001FED3E /* PhotoDetailCell.m in Sources */,
 				FD8133BF1B7A944300E48BCE /* DetailImageViewController.m in Sources */,
 				C4C3CA7F1B7E1A5B001FED3E /* CommentCell.m in Sources */,
@@ -334,6 +343,7 @@
 				C403449C1B7A6347000383DB /* NewsFeedViewController.m in Sources */,
 				C4C3CA731B7E19D3001FED3E /* CommentTableViewController.m in Sources */,
 				C4C3CA8E1B7E2556001FED3E /* UserImageView.m in Sources */,
+				C49C34361B7E4F0400F10600 /* Comment.m in Sources */,
 				C40344421B794477000383DB /* Instagram2_0.xcdatamodeld in Sources */,
 				C4C3C9ED1B7CC8CB001FED3E /* CollectionPhotoCell.m in Sources */,
 				C4C3CA7C1B7E1A4F001FED3E /* PhotoDetailCommentCell.m in Sources */,
@@ -344,8 +354,8 @@
 				C40344A51B7A636E000383DB /* FriendProfileViewController.m in Sources */,
 				C403443C1B794477000383DB /* main.m in Sources */,
 				C4C3CA851B7E2273001FED3E /* EnterCommentCell.m in Sources */,
-				C40344FD1B7C3AD9000383DB /* Photo.m in Sources */,
-				C40344FE1B7C3ADD000383DB /* Friend.m in Sources */,
+				C4C3CAA41B7E48BA001FED3E /* User.m in Sources */,
+				C4C3CAA61B7E48C3001FED3E /* Friend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

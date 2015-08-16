@@ -7,6 +7,11 @@
 //
 
 #import "FriendProfileViewController.h"
+#import "ProfileViewController.h"
+#import "NewsFeedViewController.h"
+#import "CameraViewController.h"
+#import "SearchViewController.h"
+#import "DetailImageViewController.h"
 
 @interface FriendProfileViewController ()
 
@@ -16,22 +21,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+#pragma mark - set up toolbar button segues
+#pragma mark -
+
+- (IBAction)onHomeButtonPressed:(UIBarButtonItem *)sender {
+    NewsFeedViewController *NewsVC =[self.storyboard instantiateViewControllerWithIdentifier:@"NewsVC"];
+    [self.navigationController pushViewController:NewsVC animated:true];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)onSearchButtonPressed:(UIBarButtonItem *)sender {
+    SearchViewController *searchVC =[self.storyboard instantiateViewControllerWithIdentifier:@"searchVC"];
+    [self.navigationController pushViewController:searchVC animated:true];
 }
-*/
+
+- (IBAction)onCameraButtonPressed:(UIBarButtonItem *)sender {
+    CameraViewController *cameraVC =[self.storyboard instantiateViewControllerWithIdentifier:@"cameraVC"];
+    [self.navigationController pushViewController:cameraVC animated:true];
+}
+
+- (IBAction)onLikesButtonPressed:(UIBarButtonItem *)sender {
+    // note: make sure this passes only liked photos array
+    NewsFeedViewController *newsVC =[self.storyboard instantiateViewControllerWithIdentifier:@"NewsVC"];
+    [self.navigationController pushViewController:newsVC animated:true];
+}
+
+- (IBAction)onProfileButtonPressed:(UIBarButtonItem *)sender {
+    ProfileViewController *profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
+    [self.navigationController pushViewController:profileVC animated:true];
+}
 
 @end

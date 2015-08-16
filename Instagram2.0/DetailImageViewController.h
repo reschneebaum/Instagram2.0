@@ -11,5 +11,6 @@
 @interface DetailImageViewController : UIViewController
 
 @property NSManagedObjectContext *moc;
+@property UIImage *image;
 
 @end

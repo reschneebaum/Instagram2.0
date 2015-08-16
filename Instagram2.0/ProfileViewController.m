@@ -11,6 +11,10 @@
 #import "ProfileViewController.h"
 #import "CameraViewController.h"
 #import "DetailImageViewController.h"
+#import "NewsFeedViewController.h"
+#import "SearchViewController.h"
+#import "FriendProfileViewController.h"
+#import "DetailImageViewController.h"
 #import "CollectionPhotoCell.h"
 #import "User.h"
 #import "Photo.h"
@@ -23,10 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *changeProfilePicButton;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
-@property (weak, nonatomic) IBOutlet UIButton *photosButton;
-@property (weak, nonatomic) IBOutlet UIButton *friendsButton;
-@property NSArray *photos;
 @property NSArray *testPhotos;
+@property UIImage *selectedImage;
 @property BOOL isEditingProfile;
 
 @end
@@ -37,6 +39,7 @@
     [super viewDidLoad];
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     self.moc = delegate.managedObjectContext;
+    self.photos = [NSMutableArray new];
 
     NSLog(@"%@", self.users.firstObject);
     NSLog(@"%@", self.user.username);
@@ -79,20 +82,11 @@
         } else {
             NSLog(@"the cachedImagedPath is %@",imagePath);
         }
-
-        NSMutableArray *photoUrlStrings = [NSMutableArray new];
-        [photoUrlStrings addObject:imagePath];
-        for (NSString *urlString in photoUrlStrings) {
-            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:self.moc];
-            Photo *photo = [[Photo alloc]initWithEntity:entity insertIntoManagedObjectContext:self.moc];
-//            [photo setValue:[NSString stringWithFormat:@"%@", urlString] forKey:@"photo"];
-        }
         [self.moc save:nil];
-
     }
 
     [self setUserInformation];
-//    [self loadOwnPhotos];
+    [self loadOwnPhotos];
 }
 
 -(void)loadOwnPhotos {
@@ -101,9 +95,7 @@
     NSSortDescriptor *userPhotoSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
     userPhotoRequest.sortDescriptors = @[userPhotoSortDescriptor];
     self.photos = [self.moc executeFetchRequest:userPhotoRequest error:nil];
-    if (self.photos.count > 0) {
-        NSLog(@"%@, %@", [self.photos valueForKey:@"username"], [self.photos valueForKey:@"image"]);
-    }
+    [self.profileCollectionView reloadData];
 }
 
 -(void)storePhoto:(UIImage *)image withFileName:(NSString *)fileName {
@@ -117,6 +109,7 @@
     self.photo = photo;
     self.photo.name = [NSString stringWithFormat:@"%@", fileName];
     [self.photo setValue:[NSString stringWithFormat:@"%@", fileName] forKey:@"name"];
+    [self.moc save:nil];
 }
 
 -(void)storeProfilePic:(UIImage *)image withFileName:(NSString *)fileName {
@@ -125,10 +118,9 @@
     NSString *path = [libraryDirectory stringByAppendingPathComponent:fileName];
     NSData *imageData = UIImagePNGRepresentation(image);
     [imageData writeToFile:path atomically:YES];
-    image = [UIImage imageNamed:fileName];
+    image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", fileName]];
     self.user.profilePic = fileName;
     [self.user setValue:fileName forKey:@"profilePic"];
-    [self.moc save:nil];
 }
 
 -(void)setUserInformation {
@@ -187,6 +179,9 @@
 -(CollectionPhotoCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userProfilePhotosID" forIndexPath:indexPath];
     cell.delegate = self;
+
+//    Photo *photo = [self.photos objectAtIndex:indexPath.row];
+//    cell.cellImage.image = [UIImage imageWithContentsOfFile:photo.image];
     cell.cellImage.image = self.testPhotos[indexPath.row];
 
     return cell;
@@ -198,6 +193,7 @@
 }
 
 -(NSInteger)collectionView:(CollectionPhotoCell *)collectionView numberOfItemsInSection:(NSInteger)section {
+//    return self.photos.count;
     return self.testPhotos.count;
 }
 
@@ -220,18 +216,52 @@
     }
 }
 
-- (IBAction)onPhotosButtonPressed:(UIButton *)sender {
-    CameraViewController *cameraVC = [self.storyboard instantiateViewControllerWithIdentifier:@"cameraVC"];
-    [self.navigationController pushViewController:cameraVC animated:YES];
+- (IBAction)onHiddenButtonPressed:(id)sender {
+    DetailImageViewController *detailVC =[self.storyboard instantiateViewControllerWithIdentifier:@"detailVC"];
+    [self.navigationController pushViewController:detailVC animated:true];
+    detailVC.moc = self.moc;
+    UIImage *selectedImage = [self.profileCollectionView.indexPathsForSelectedItems firstObject];
+    detailVC.image = selectedImage;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender {
+}
+
+#pragma mark - set up toolbar button segues
+#pragma mark -
+
+- (IBAction)onHomeButtonPressed:(UIBarButtonItem *)sender {
+    NewsFeedViewController *NewsVC =[self.storyboard instantiateViewControllerWithIdentifier:@"NewsVC"];
+    [self.navigationController pushViewController:NewsVC animated:true];
+}
+
+- (IBAction)onSearchButtonPressed:(UIBarButtonItem *)sender {
+    SearchViewController *searchVC =[self.storyboard instantiateViewControllerWithIdentifier:@"searchVC"];
+    [self.navigationController pushViewController:searchVC animated:true];
+    searchVC.photos = self.testPhotos;
+}
+
+- (IBAction)onCameraButtonPressed:(UIBarButtonItem *)sender {
+    CameraViewController *cameraVC =[self.storyboard instantiateViewControllerWithIdentifier:@"cameraVC"];
+    [self.navigationController pushViewController:cameraVC animated:true];
     cameraVC.moc = self.moc;
     cameraVC.user = self.user;
-    cameraVC.photos = self.photos;
+    cameraVC.photos = self.testPhotos;
 }
 
-- (IBAction)onFriendsButtonPressed:(UIButton *)sender {
+- (IBAction)onLikesButtonPressed:(UIBarButtonItem *)sender {
+    NewsFeedViewController *newsVC =[self.storyboard instantiateViewControllerWithIdentifier:@"NewsVC"];
+    [self.navigationController pushViewController:newsVC animated:true];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+    request.predicate = [NSPredicate predicateWithFormat:@"isLiked == %@", self.user];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"whenTaken" ascending:true]];
+    newsVC.photos = [self.moc executeFetchRequest:request error:nil];
+    newsVC.moc = self.moc;
+    newsVC.user = self.user;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (IBAction)onProfileButtonPressed:(UIBarButtonItem *)sender {
+    sender.enabled = false;
 }
 
 @end

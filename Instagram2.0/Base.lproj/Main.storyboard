@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="IoY-5i-T5t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="HA1-dK-csF">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -113,34 +113,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYq-lF-CY4">
-                                <rect key="frame" x="248" y="28" width="51" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="I3W-iS-QhI"/>
-                                    <constraint firstAttribute="width" constant="51" id="wXd-Dl-ieo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Friends">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onFriendsButtonPressed:" destination="IoY-5i-T5t" eventType="touchUpInside" id="U91-H5-VUF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlv-YZ-kf9">
-                                <rect key="frame" x="143" y="28" width="49" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="49" id="5nB-Tc-vaK"/>
-                                    <constraint firstAttribute="height" constant="30" id="BIO-Uw-SzB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Likes">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onPhotosButtonPressed:" destination="IoY-5i-T5t" eventType="touchUpInside" id="2Yk-AM-HgW"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZII-GX-QY8">
                                 <rect key="frame" x="16" y="28" width="111" height="121"/>
                                 <gestureRecognizers/>
@@ -187,6 +159,9 @@
                                     <color key="titleColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onDoneButtonPressed:" destination="IoY-5i-T5t" eventType="touchUpInside" id="stI-x5-SsV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0X-nz-V8H">
                                 <rect key="frame" x="162" y="74" width="121" height="30"/>
@@ -200,6 +175,9 @@
                                     <color key="titleColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onEditButtonPressed:" destination="IoY-5i-T5t" eventType="touchUpInside" id="h4H-Ky-1bN"/>
+                                </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtl-zY-R4A">
                                 <rect key="frame" x="0.0" y="252" width="320" height="44"/>
@@ -281,22 +259,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="112" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7yN-rc-el3">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7yN-rc-el3">
                                                     <rect key="frame" x="4" y="3" width="104" height="106"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kca-bH-9vW">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kca-bH-9vW">
                                                     <rect key="frame" x="4" y="3" width="108" height="108"/>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onHiddenButtonPressed:" destination="IoY-5i-T5t" eventType="touchUpInside" id="T2V-u2-36b"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="7yN-rc-el3" firstAttribute="leading" secondItem="mRc-Kx-v3H" secondAttribute="leadingMargin" constant="-4" id="63F-hp-AHF"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="7yN-rc-el3" secondAttribute="bottom" constant="-6" id="KfI-CY-W9y"/>
+                                            <constraint firstItem="kca-bH-9vW" firstAttribute="leading" secondItem="7yN-rc-el3" secondAttribute="leading" id="fGK-H6-hyp"/>
+                                            <constraint firstItem="7yN-rc-el3" firstAttribute="centerX" secondItem="mRc-Kx-v3H" secondAttribute="centerX" id="hBu-K1-XaM"/>
+                                            <constraint firstAttribute="bottom" secondItem="kca-bH-9vW" secondAttribute="bottom" id="jvG-gb-JY3"/>
+                                            <constraint firstItem="7yN-rc-el3" firstAttribute="top" secondItem="kca-bH-9vW" secondAttribute="top" id="lMx-ax-zoR"/>
+                                            <constraint firstItem="7yN-rc-el3" firstAttribute="top" secondItem="mRc-Kx-v3H" secondAttribute="topMargin" constant="-5" id="lpl-D1-JdS"/>
+                                            <constraint firstAttribute="trailing" secondItem="kca-bH-9vW" secondAttribute="trailing" id="n88-fy-PLi"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="cellImage" destination="7yN-rc-el3" id="MdF-cG-uV3"/>
-                                            <outletCollection property="gestureRecognizers" destination="9ED-Hb-xaI" appends="YES" id="JlP-VD-pHT"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -312,15 +302,35 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Qoa-qy-agE"/>
-                                    <barButtonItem image="home" id="um2-8E-jr5"/>
+                                    <barButtonItem image="home" id="um2-8E-jr5">
+                                        <connections>
+                                            <action selector="onHomeButtonPressed:" destination="IoY-5i-T5t" id="YBH-Vs-oty"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="3GG-m1-uTy"/>
-                                    <barButtonItem systemItem="search" id="ND1-M5-v2E"/>
+                                    <barButtonItem systemItem="search" id="ND1-M5-v2E">
+                                        <connections>
+                                            <action selector="onSearchButtonPressed:" destination="IoY-5i-T5t" id="qLy-Zr-YKl"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="KmD-Vx-gRY"/>
-                                    <barButtonItem systemItem="camera" id="OkF-4p-CjL"/>
+                                    <barButtonItem systemItem="camera" id="OkF-4p-CjL">
+                                        <connections>
+                                            <action selector="onCameraButtonPressed:" destination="IoY-5i-T5t" id="un6-FS-WCi"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="kxM-Ee-Qig"/>
-                                    <barButtonItem image="likes" id="pqt-IN-zWj"/>
+                                    <barButtonItem image="likes" id="pqt-IN-zWj">
+                                        <connections>
+                                            <action selector="onLikesButtonPressed:" destination="IoY-5i-T5t" id="Jka-zj-a3L"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="686-vW-6m0"/>
-                                    <barButtonItem image="user" id="WHw-kS-hoQ"/>
+                                    <barButtonItem image="user" id="WHw-kS-hoQ">
+                                        <connections>
+                                            <action selector="onProfileButtonPressed:" destination="IoY-5i-T5t" id="1cl-qE-2Fw"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="HBy-V7-IF0"/>
                                 </items>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -333,13 +343,12 @@
                             <constraint firstItem="6jg-5v-4ep" firstAttribute="leading" secondItem="gy6-uz-ogh" secondAttribute="leadingMargin" constant="-16" id="1JJ-DB-RO3"/>
                             <constraint firstItem="5am-vM-7y1" firstAttribute="top" secondItem="6jg-5v-4ep" secondAttribute="bottom" id="1Nw-3t-ZRV"/>
                             <constraint firstItem="SoU-dq-Bvh" firstAttribute="trailing" secondItem="gy6-uz-ogh" secondAttribute="trailingMargin" id="55R-W0-hAF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xYq-lF-CY4" secondAttribute="trailing" constant="5" id="5QS-pU-bMW"/>
-                            <constraint firstItem="o0X-nz-V8H" firstAttribute="top" secondItem="zlv-YZ-kf9" secondAttribute="bottom" constant="16" id="6x7-wX-fDw"/>
                             <constraint firstItem="jHg-9R-wvb" firstAttribute="leading" secondItem="gy6-uz-ogh" secondAttribute="leadingMargin" constant="-16" id="720-wH-RO1"/>
                             <constraint firstItem="9w0-9Q-1Ek" firstAttribute="trailing" secondItem="gy6-uz-ogh" secondAttribute="trailingMargin" id="8Nm-R9-kue"/>
                             <constraint firstItem="9w0-9Q-1Ek" firstAttribute="top" secondItem="SoU-dq-Bvh" secondAttribute="bottom" constant="8" id="ABc-EG-xth"/>
                             <constraint firstAttribute="centerX" secondItem="cSe-bH-6BF" secondAttribute="centerX" id="Af9-uE-im9"/>
                             <constraint firstItem="85A-EN-z8J" firstAttribute="leading" secondItem="gy6-uz-ogh" secondAttribute="leadingMargin" id="B57-um-tmP"/>
+                            <constraint firstItem="RYq-tf-Ona" firstAttribute="centerY" secondItem="85A-EN-z8J" secondAttribute="centerY" id="DR3-hJ-TS2"/>
                             <constraint firstItem="SoU-dq-Bvh" firstAttribute="top" secondItem="85A-EN-z8J" secondAttribute="bottom" constant="57" id="EiU-Ww-SZ8"/>
                             <constraint firstItem="dtl-zY-R4A" firstAttribute="top" secondItem="9w0-9Q-1Ek" secondAttribute="bottom" id="G27-pT-dGm"/>
                             <constraint firstItem="o0X-nz-V8H" firstAttribute="leading" secondItem="ZII-GX-QY8" secondAttribute="trailing" constant="35" id="HZF-nm-Ujb"/>
@@ -349,29 +358,25 @@
                             <constraint firstItem="SoU-dq-Bvh" firstAttribute="leading" secondItem="gy6-uz-ogh" secondAttribute="leadingMargin" id="P4O-VH-1NI"/>
                             <constraint firstItem="RYq-tf-Ona" firstAttribute="leading" secondItem="ZII-GX-QY8" secondAttribute="trailing" constant="35" id="Qxr-my-0Is"/>
                             <constraint firstItem="5am-vM-7y1" firstAttribute="top" secondItem="1DT-lh-l3u" secondAttribute="bottom" id="STj-Nc-9eg"/>
+                            <constraint firstItem="RYq-tf-Ona" firstAttribute="baseline" secondItem="o0X-nz-V8H" secondAttribute="baseline" id="SiG-ys-hIB"/>
                             <constraint firstItem="5am-vM-7y1" firstAttribute="top" secondItem="jHg-9R-wvb" secondAttribute="bottom" id="WKp-Qg-7EM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jHg-9R-wvb" secondAttribute="trailing" constant="-16" id="WMn-4u-A02"/>
-                            <constraint firstItem="dtl-zY-R4A" firstAttribute="top" secondItem="xYq-lF-CY4" secondAttribute="bottom" constant="194" id="Wte-WI-g0I"/>
                             <constraint firstItem="9w0-9Q-1Ek" firstAttribute="top" secondItem="17C-2A-4n0" secondAttribute="bottom" constant="166" id="Xi5-ig-ONc"/>
                             <constraint firstItem="5am-vM-7y1" firstAttribute="top" secondItem="cSe-bH-6BF" secondAttribute="bottom" id="Y3z-rO-wZc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cSe-bH-6BF" secondAttribute="trailing" constant="-16" id="ZG5-iT-fKo"/>
                             <constraint firstItem="dtl-zY-R4A" firstAttribute="top" secondItem="17C-2A-4n0" secondAttribute="bottom" constant="232" id="ZGK-1T-YWE"/>
-                            <constraint firstItem="zlv-YZ-kf9" firstAttribute="top" secondItem="17C-2A-4n0" secondAttribute="bottom" constant="8" id="a4d-mE-CCj"/>
                             <constraint firstItem="6jg-5v-4ep" firstAttribute="top" secondItem="dtl-zY-R4A" secondAttribute="bottom" id="bLs-vi-So8"/>
                             <constraint firstItem="9w0-9Q-1Ek" firstAttribute="leading" secondItem="gy6-uz-ogh" secondAttribute="leadingMargin" id="cti-mk-8Gn"/>
                             <constraint firstItem="1DT-lh-l3u" firstAttribute="leading" secondItem="gy6-uz-ogh" secondAttribute="leadingMargin" constant="-16" id="dDv-GJ-3KR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dtl-zY-R4A" secondAttribute="trailing" constant="-16" id="fjV-3l-I8o"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1DT-lh-l3u" secondAttribute="trailing" constant="-16" id="fzM-H2-gAK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6jg-5v-4ep" secondAttribute="trailing" constant="-16" id="gD3-gf-1xJ"/>
-                            <constraint firstItem="RYq-tf-Ona" firstAttribute="top" secondItem="zlv-YZ-kf9" secondAttribute="bottom" constant="16" id="giL-D9-Nkh"/>
                             <constraint firstItem="1DT-lh-l3u" firstAttribute="top" secondItem="dtl-zY-R4A" secondAttribute="bottom" id="jCv-ii-2tD"/>
                             <constraint firstItem="cSe-bH-6BF" firstAttribute="leading" secondItem="gy6-uz-ogh" secondAttribute="leadingMargin" constant="-16" id="nBp-1i-Cfr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZII-GX-QY8" secondAttribute="trailing" constant="177" id="r6O-9L-w8G"/>
                             <constraint firstItem="ZII-GX-QY8" firstAttribute="top" secondItem="17C-2A-4n0" secondAttribute="bottom" constant="8" id="rg7-G4-yeL"/>
                             <constraint firstItem="dtl-zY-R4A" firstAttribute="leading" secondItem="gy6-uz-ogh" secondAttribute="leadingMargin" constant="-16" id="tkR-5m-G5M"/>
                             <constraint firstItem="SoU-dq-Bvh" firstAttribute="top" secondItem="ZII-GX-QY8" secondAttribute="bottom" constant="8" id="xFL-Zl-IES"/>
-                            <constraint firstItem="xYq-lF-CY4" firstAttribute="leading" secondItem="zlv-YZ-kf9" secondAttribute="trailing" constant="56" id="yiJ-5C-P4n"/>
-                            <constraint firstItem="dtl-zY-R4A" firstAttribute="top" secondItem="zlv-YZ-kf9" secondAttribute="bottom" constant="194" id="zIW-EH-juI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UcT-3I-9OL">
@@ -380,22 +385,21 @@
                     <connections>
                         <outlet property="changeProfilePicButton" destination="85A-EN-z8J" id="pKQ-ob-IbW"/>
                         <outlet property="descriptionTextView" destination="9w0-9Q-1Ek" id="U5A-vA-IbC"/>
-                        <outlet property="friendsButton" destination="xYq-lF-CY4" id="lDG-BB-fTH"/>
+                        <outlet property="doneButton" destination="RYq-tf-Ona" id="nBV-ji-lvy"/>
+                        <outlet property="editButton" destination="o0X-nz-V8H" id="NEh-hi-5Kp"/>
                         <outlet property="nameLabel" destination="SoU-dq-Bvh" id="rhW-0i-SHo"/>
-                        <outlet property="photosButton" destination="zlv-YZ-kf9" id="Ngg-8A-jVq"/>
                         <outlet property="profileCollectionView" destination="6jg-5v-4ep" id="AC8-wf-8ui"/>
                         <outlet property="profilePictureImageView" destination="ZII-GX-QY8" id="2U4-Wq-JuN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxS-45-h09" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="9ED-Hb-xaI"/>
             </objects>
             <point key="canvasLocation" x="692" y="-186"/>
         </scene>
         <!--Detail Image View Controller-->
         <scene sceneID="dgy-l2-ihC">
             <objects>
-                <viewController storyboardIdentifier="detailImageVC" id="mTV-hB-djD" customClass="DetailImageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailVC" id="mTV-hB-djD" customClass="DetailImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YQb-A4-E0T"/>
                         <viewControllerLayoutGuide type="bottom" id="shz-Mq-SQJ"/>
@@ -414,10 +418,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r4G-sm-aOb">
-                                                    <rect key="frame" x="0.0" y="41.5" width="320" height="264.5"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30l-Yd-yB7" customClass="UserImageView">
-                                                    <rect key="frame" x="8" y="1" width="37" height="33.5"/>
+                                                    <rect key="frame" x="0.0" y="41.5" width="320" height="265"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRM-kM-U6T">
                                                     <rect key="frame" x="53" y="3" width="68" height="30"/>
@@ -445,6 +446,9 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30l-Yd-yB7" customClass="UserImageView">
+                                                    <rect key="frame" x="8" y="8" width="30" height="30"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -498,15 +502,35 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="POW-J7-wPH"/>
-                                    <barButtonItem image="home" id="C18-Qn-kLB"/>
+                                    <barButtonItem image="home" id="C18-Qn-kLB">
+                                        <connections>
+                                            <action selector="onHomeButtonPressed:" destination="mTV-hB-djD" id="lXV-C8-wLh"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="XIn-Wk-Hyf"/>
-                                    <barButtonItem systemItem="search" id="1eN-bI-lyX"/>
+                                    <barButtonItem systemItem="search" id="1eN-bI-lyX">
+                                        <connections>
+                                            <action selector="onSearchButtonPressed:" destination="mTV-hB-djD" id="GfH-I6-p6R"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="Sju-LS-N9U"/>
-                                    <barButtonItem systemItem="camera" id="ggf-ql-1b2"/>
+                                    <barButtonItem systemItem="camera" id="ggf-ql-1b2">
+                                        <connections>
+                                            <action selector="onCameraButtonPressed:" destination="mTV-hB-djD" id="qBv-wW-bwS"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="VDK-p8-4NW"/>
-                                    <barButtonItem image="likes" id="4zQ-t3-93j"/>
+                                    <barButtonItem image="likes" id="4zQ-t3-93j">
+                                        <connections>
+                                            <action selector="onLikesButtonPressed:" destination="mTV-hB-djD" id="9eP-5j-b6R"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="mgt-n6-wqX"/>
-                                    <barButtonItem image="user" id="GjN-t8-RIJ"/>
+                                    <barButtonItem image="user" id="GjN-t8-RIJ">
+                                        <connections>
+                                            <action selector="onProfileButtonPressed:" destination="mTV-hB-djD" id="giI-g4-oUW"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XPa-54-vfh"/>
                                 </items>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -597,7 +621,7 @@
         <!--News Feed View Controller-->
         <scene sceneID="W97-Lk-TF3">
             <objects>
-                <viewController storyboardIdentifier="newsFC" id="Qzf-Jl-ZhJ" customClass="NewsFeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsVC" id="Qzf-Jl-ZhJ" customClass="NewsFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dFD-ul-OId"/>
                         <viewControllerLayoutGuide type="bottom" id="bYd-70-8Tu"/>
@@ -606,22 +630,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-h1-e9R">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="317" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-h1-e9R">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCellID" rowHeight="200" id="yAj-Pw-5Fc" customClass="PhotoDetailCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCellID" rowHeight="335" id="yAj-Pw-5Fc" customClass="PhotoDetailCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yAj-Pw-5Fc" id="kly-FY-HN9">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY0-yu-tvl">
-                                                    <rect key="frame" x="8" y="8" width="46" height="30"/>
-                                                    <state key="normal" title="Button">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY0-yu-tvl">
+                                                    <rect key="frame" x="46" y="3" width="68" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="68" id="FQK-7P-phm"/>
+                                                        <constraint firstAttribute="height" constant="30" id="hpz-wm-mrd"/>
+                                                    </constraints>
+                                                    <state key="normal" title="username">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oA9-AZ-arJ">
+                                                    <rect key="frame" x="8" y="3" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="nt2-8t-7ik"/>
+                                                        <constraint firstAttribute="height" constant="30" id="pIV-JL-Edr"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AS-xe-eXG">
+                                                    <rect key="frame" x="275" y="12" width="37" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Ieq-Fa-gAv"/>
+                                                        <constraint firstAttribute="width" constant="37" id="PIM-aY-xtv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qAv-jC-wWB">
+                                                    <rect key="frame" x="0.0" y="41" width="320" height="265"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOs-TL-Qoe">
+                                                    <rect key="frame" x="46" y="303" width="65" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="65" id="75r-yy-l4f"/>
+                                                        <constraint firstAttribute="height" constant="30" id="ICE-RT-2Q6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="comment">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Npe-bF-TV2">
+                                                    <rect key="frame" x="8" y="304" width="30" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="68z-Ds-cXP"/>
+                                                        <constraint firstAttribute="width" constant="30" id="htj-Yv-S2L"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="like">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qAv-jC-wWB" firstAttribute="top" secondItem="bY0-yu-tvl" secondAttribute="bottom" constant="8" id="0OS-Z3-oRl"/>
+                                                <constraint firstItem="qAv-jC-wWB" firstAttribute="leading" secondItem="kly-FY-HN9" secondAttribute="leadingMargin" constant="-8" id="127-Tr-jiN"/>
+                                                <constraint firstItem="qAv-jC-wWB" firstAttribute="top" secondItem="kly-FY-HN9" secondAttribute="topMargin" constant="33" id="2Y4-md-qB0"/>
+                                                <constraint firstItem="oA9-AZ-arJ" firstAttribute="leading" secondItem="kly-FY-HN9" secondAttribute="leadingMargin" id="36L-3f-4Lz"/>
+                                                <constraint firstItem="bY0-yu-tvl" firstAttribute="leading" secondItem="oA9-AZ-arJ" secondAttribute="trailing" constant="8" id="JUx-Mf-Nzd"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eOs-TL-Qoe" secondAttribute="bottom" constant="-6.5" id="Ley-Ho-yR1"/>
+                                                <constraint firstItem="Npe-bF-TV2" firstAttribute="leading" secondItem="kly-FY-HN9" secondAttribute="leadingMargin" id="TvL-oF-SNS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Npe-bF-TV2" secondAttribute="bottom" constant="-4.5" id="UzH-h2-7EI"/>
+                                                <constraint firstItem="eOs-TL-Qoe" firstAttribute="leading" secondItem="Npe-bF-TV2" secondAttribute="trailing" constant="8" id="ZLp-tr-1A1"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qAv-jC-wWB" secondAttribute="trailing" constant="-8" id="aeb-3K-Hwz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qAv-jC-wWB" secondAttribute="bottom" constant="20.5" id="hBL-fd-zzv"/>
+                                                <constraint firstItem="qAv-jC-wWB" firstAttribute="top" secondItem="oA9-AZ-arJ" secondAttribute="bottom" constant="8" id="k9l-Wq-8ZZ"/>
+                                                <constraint firstItem="qAv-jC-wWB" firstAttribute="top" secondItem="6AS-xe-eXG" secondAttribute="bottom" constant="8" id="sXo-Yy-oxi"/>
+                                                <constraint firstItem="6AS-xe-eXG" firstAttribute="trailing" secondItem="kly-FY-HN9" secondAttribute="trailingMargin" id="zga-FA-69T"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -637,15 +723,35 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="urN-V0-Xcf"/>
-                                    <barButtonItem image="home" id="Wrd-eZ-Wsd"/>
+                                    <barButtonItem image="home" id="Wrd-eZ-Wsd">
+                                        <connections>
+                                            <action selector="onHomeButtonPressed:" destination="Qzf-Jl-ZhJ" id="oJy-Kb-un6"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="Zh5-kT-Fkw"/>
-                                    <barButtonItem systemItem="search" id="xgt-3m-7oj"/>
+                                    <barButtonItem systemItem="search" id="xgt-3m-7oj">
+                                        <connections>
+                                            <action selector="onSearchButtonPressed:" destination="Qzf-Jl-ZhJ" id="nYf-iM-wJr"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="XWB-j0-zBb"/>
-                                    <barButtonItem systemItem="camera" id="fyb-9U-BzB"/>
+                                    <barButtonItem systemItem="camera" id="fyb-9U-BzB">
+                                        <connections>
+                                            <action selector="onCameraButtonPressed:" destination="Qzf-Jl-ZhJ" id="aAj-dN-T2F"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="fEW-Ts-lDb"/>
-                                    <barButtonItem image="likes" id="Nfp-6D-FZ3"/>
+                                    <barButtonItem image="likes" id="Nfp-6D-FZ3">
+                                        <connections>
+                                            <action selector="onLikesButtonPressed:" destination="Qzf-Jl-ZhJ" id="nKp-qT-l0J"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="J72-gx-In6"/>
-                                    <barButtonItem image="user" id="NfI-YY-ZO2"/>
+                                    <barButtonItem image="user" id="NfI-YY-ZO2">
+                                        <connections>
+                                            <action selector="onProfileButtonPressed:" destination="Qzf-Jl-ZhJ" id="hjI-9c-Yrv"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kqf-ax-EIW"/>
                                 </items>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -695,9 +801,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="TakePhoto" destination="d0G-Lp-trh" eventType="touchUpInside" id="GRX-ui-Z5c"/>
-                                    <action selector="takePhoto" destination="T63-6a-JNN" eventType="touchUpInside" id="bka-61-8H9"/>
-                                    <action selector="takePhoto:" destination="T63-6a-JNN" eventType="touchUpInside" id="043-tf-1q1"/>
+                                    <action selector="takePhoto:" destination="T63-6a-JNN" eventType="touchUpInside" id="Cpi-Xc-z2d"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wq-PW-hju">
@@ -728,9 +832,9 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="znD-Tz-rQv"/>
-                                    <barButtonItem title="photo" id="G8A-QO-e2W">
+                                    <barButtonItem title="upload" id="G8A-QO-e2W">
                                         <connections>
-                                            <action selector="takePhoto:" destination="T63-6a-JNN" id="4Lg-Dp-CcA"/>
+                                            <action selector="onUploadButtonPress:" destination="T63-6a-JNN" id="R0k-gq-aem"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="50" style="plain" systemItem="fixedSpace" id="HbO-hC-R5L"/>
@@ -765,7 +869,6 @@
                     <navigationItem key="navigationItem" id="dNJ-5d-0Rl"/>
                     <connections>
                         <outlet property="imageView" destination="AJk-ub-jbx" id="RBE-Zv-S7v"/>
-                        <outlet property="takePictureButton" destination="fdN-mI-faq" id="RtJ-eg-yaP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0G-Lp-trh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -775,7 +878,7 @@
         <!--Friend Profile View Controller-->
         <scene sceneID="1St-C1-5Hb">
             <objects>
-                <viewController storyboardIdentifier="friendProfileVC" id="sVU-Vb-ANF" customClass="FriendProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="friendVC" id="sVU-Vb-ANF" customClass="FriendProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fg7-I0-9s4"/>
                         <viewControllerLayoutGuide type="bottom" id="hB6-6d-qGL"/>
@@ -925,7 +1028,7 @@
                                 <rect key="frame" x="0.0" y="297" width="320" height="271"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="175" id="YWP-2N-MOY" customClass="PhotoDetailCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendPhotoCellID" rowHeight="175" id="YWP-2N-MOY" customClass="PhotoDetailCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YWP-2N-MOY" id="zVR-Vl-rcu">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -975,15 +1078,35 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oef-TP-r7p"/>
-                                    <barButtonItem image="home" id="VjW-2T-PrU"/>
+                                    <barButtonItem image="home" id="VjW-2T-PrU">
+                                        <connections>
+                                            <action selector="onHomeButtonPressed:" destination="sVU-Vb-ANF" id="ouT-oP-i6x"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="S68-TD-r2h"/>
-                                    <barButtonItem systemItem="search" id="BS3-yP-fa5"/>
+                                    <barButtonItem systemItem="search" id="BS3-yP-fa5">
+                                        <connections>
+                                            <action selector="onSearchButtonPressed:" destination="sVU-Vb-ANF" id="1mS-bf-u4w"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="FxW-29-CAS"/>
-                                    <barButtonItem systemItem="camera" id="IG2-yw-rxO"/>
+                                    <barButtonItem systemItem="camera" id="IG2-yw-rxO">
+                                        <connections>
+                                            <action selector="onCameraButtonPressed:" destination="sVU-Vb-ANF" id="po0-xh-AwW"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="ze1-gh-P3d"/>
-                                    <barButtonItem image="likes" id="S9f-4f-Jxa"/>
+                                    <barButtonItem image="likes" id="S9f-4f-Jxa">
+                                        <connections>
+                                            <action selector="onLikesButtonPressed:" destination="sVU-Vb-ANF" id="kfX-2X-6bW"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="GME-9o-pIq"/>
-                                    <barButtonItem image="user" id="Q15-Tz-lLI"/>
+                                    <barButtonItem image="user" id="Q15-Tz-lLI">
+                                        <connections>
+                                            <action selector="onProfileButtonPressed:" destination="sVU-Vb-ANF" id="bb3-J9-gRE"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="vcL-Z2-SYu"/>
                                 </items>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1073,14 +1196,49 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="175" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-Ig-pfA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="335" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-Ig-pfA">
                                 <rect key="frame" x="0.0" y="44" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchTableCellID" rowHeight="175" id="WqJ-dm-Gcz" customClass="PhotoDetailCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchTableCellID" rowHeight="335" id="WqJ-dm-Gcz" customClass="PhotoDetailCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WqJ-dm-Gcz" id="qve-rV-oEb">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqS-Zo-FXA">
+                                                    <rect key="frame" x="52" y="8" width="68" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="username">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zqx-jf-FrP">
+                                                    <rect key="frame" x="52" y="307" width="53" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="comment">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PDT-bX-SHC">
+                                                    <rect key="frame" x="0.0" y="46" width="320" height="265"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9dp-Gq-0b6">
+                                                    <rect key="frame" x="14" y="8" width="30" height="30"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="848-4w-6Ta">
+                                                    <rect key="frame" x="284" y="8" width="28" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38K-bW-HBJ">
+                                                    <rect key="frame" x="14" y="307" width="39" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="like">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -1099,15 +1257,35 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wvq-NN-4xt"/>
-                                    <barButtonItem image="home" id="anZ-fE-4WB"/>
+                                    <barButtonItem image="home" id="anZ-fE-4WB">
+                                        <connections>
+                                            <action selector="onHomeButtonPressed:" destination="ybM-TQ-xWO" id="wft-sq-zaN"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="Xke-Rt-hn7"/>
-                                    <barButtonItem systemItem="search" id="bJU-n8-cw6"/>
+                                    <barButtonItem systemItem="search" id="bJU-n8-cw6">
+                                        <connections>
+                                            <action selector="onSearchButtonPressed:" destination="ybM-TQ-xWO" id="dqp-At-8VU"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="LbM-8H-pju"/>
-                                    <barButtonItem systemItem="camera" id="Rx6-ed-eXg"/>
+                                    <barButtonItem systemItem="camera" id="Rx6-ed-eXg">
+                                        <connections>
+                                            <action selector="onCameraButtonPressed:" destination="ybM-TQ-xWO" id="j2v-QD-vWc"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="OVU-6L-03W"/>
-                                    <barButtonItem image="likes" id="gHc-uv-doK"/>
+                                    <barButtonItem image="likes" id="gHc-uv-doK">
+                                        <connections>
+                                            <action selector="onLikesButtonPressed:" destination="ybM-TQ-xWO" id="fmD-0b-cX0"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="Cn0-MI-vUI"/>
-                                    <barButtonItem image="user" id="6sy-NQ-4cC"/>
+                                    <barButtonItem image="user" id="6sy-NQ-4cC">
+                                        <connections>
+                                            <action selector="onProfileButtonPressed:" destination="ybM-TQ-xWO" id="cOh-O6-0nj"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PF8-Si-wjc"/>
                                 </items>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>

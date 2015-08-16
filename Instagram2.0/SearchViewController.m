@@ -7,8 +7,15 @@
 //
 
 #import "SearchViewController.h"
+#import "ProfileViewController.h"
+#import "NewsFeedViewController.h"
+#import "CameraViewController.h"
+#import "FriendProfileViewController.h"
+#import "DetailImageViewController.h"
+#import "CommentTableViewController.h"
+#import "PhotoDetailCell.h"
 
-@interface SearchViewController ()
+@interface SearchViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -16,22 +23,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark - UITableView data source methods
+#pragma mark
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.photos.count;
 }
 
-/*
-#pragma mark - Navigation
+-(PhotoDetailCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PhotoDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchTableViewID"];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return cell;
 }
-*/
+
+#pragma mark - set up toolbar button segues
+#pragma mark -
+
+- (IBAction)onHomeButtonPressed:(UIBarButtonItem *)sender {
+    NewsFeedViewController *NewsVC =[self.storyboard instantiateViewControllerWithIdentifier:@"NewsVC"];
+    [self.navigationController pushViewController:NewsVC animated:true];
+}
+
+- (IBAction)onSearchButtonPressed:(UIBarButtonItem *)sender {
+    sender.enabled = false;
+}
+
+- (IBAction)onCameraButtonPressed:(UIBarButtonItem *)sender {
+    CameraViewController *cameraVC =[self.storyboard instantiateViewControllerWithIdentifier:@"cameraVC"];
+    [self.navigationController pushViewController:cameraVC animated:true];
+}
+
+- (IBAction)onLikesButtonPressed:(UIBarButtonItem *)sender {
+        NewsFeedViewController *newsVC =[self.storyboard instantiateViewControllerWithIdentifier:@"NewsVC"];
+        [self.navigationController pushViewController:newsVC animated:true];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+        request.predicate = [NSPredicate predicateWithFormat:@"isLiked == %@", self.user];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"whenTaken" ascending:true]];
+        newsVC.photos = [self.moc executeFetchRequest:request error:nil];
+        newsVC.moc = self.moc;
+        newsVC.user = self.user;
+
+}
+
+- (IBAction)onProfileButtonPressed:(UIBarButtonItem *)sender {
+    ProfileViewController *profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
+    [self.navigationController pushViewController:profileVC animated:true];
+}
 
 @end

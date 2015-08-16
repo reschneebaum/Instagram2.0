@@ -2,7 +2,7 @@
 //  Friend.h
 //  Instagram2.0
 //
-//  Created by Rachel Schneebaum on 8/12/15.
+//  Created by Rachel Schneebaum on 8/14/15.
 //  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSSet *friendPhotos;
 @property (nonatomic, retain) User *isFriendOf;
+@property (nonatomic, retain) Photo *likes;
 @end
 
 @interface Friend (CoreDataGeneratedAccessors)

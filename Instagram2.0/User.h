@@ -2,7 +2,7 @@
 //  User.h
 //  Instagram2.0
 //
-//  Created by Rachel Schneebaum on 8/12/15.
+//  Created by Rachel Schneebaum on 8/14/15.
 //  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
@@ -16,11 +16,12 @@
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * password;
+@property (nonatomic, retain) NSString * profilePic;
 @property (nonatomic, retain) NSString * textDescription;
 @property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSString * profilePic;
 @property (nonatomic, retain) NSSet *friends;
 @property (nonatomic, retain) NSSet *userPhotos;
+@property (nonatomic, retain) Photo *likedPhotos;
 @end
 
 @interface User (CoreDataGeneratedAccessors)

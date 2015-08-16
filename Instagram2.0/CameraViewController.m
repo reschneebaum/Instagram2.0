@@ -6,8 +6,11 @@
 //  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
+#import <ImageIO/ImageIO.h>
 #import "AppDelegate.h"
 #import "CameraViewController.h"
+#import "ProfileViewController.h"
+#import "NewsFeedViewController.h"
 #import "Photo.h"
 #import "User.h"
 
@@ -33,7 +36,7 @@
     [self checkForAndLoadPhotos];
 
 //  testing photo storing
-    self.image = [UIImage imageNamed:@"profile_default"];
+//    self.image = [UIImage imageNamed:@"profile_default"];
 }
 
 #pragma mark - photo storage
@@ -51,11 +54,19 @@
     }
 }
 
+-(void)loadOwnPhotos {
+    NSFetchRequest *userPhotoRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+    userPhotoRequest.predicate = [NSPredicate predicateWithFormat:@"isUserPhoto == %@", self.user];
+    NSSortDescriptor *userPhotoSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"whenTaken" ascending:false];
+    userPhotoRequest.sortDescriptors = @[userPhotoSortDescriptor];
+    self.photos = [self.moc executeFetchRequest:userPhotoRequest error:nil];
+}
+
 -(void)storeToDirectorySelectedImage:(UIImage *)image {
     NSData *imageData = UIImagePNGRepresentation(image);
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    self.imagePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"cached"]];
+    self.imagePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%f.png", [NSDate timeIntervalSinceReferenceDate]]];
 
     NSLog((@"pre writing to file"));
     if (![imageData writeToFile:self.imagePath atomically:NO]) {
@@ -71,7 +82,29 @@
     [photo setValue:self.imagePath forKey:@"image"];
     [self.user addUserPhotosObject:photo];
     [self.moc save:nil];
+    [self checkForAndLoadPhotos];
 }
+
+//-(void)retrieveImageTimestamp {
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"gg_gps" ofType:@"jpg"];
+//    NSURL *imageFileURL = [NSURL fileURLWithPath:path];
+//    CGImageSourceRef imageSource = CGImageSourceCreateWithURL((CFURLRef)CFBridgingRetain(imageFileURL), NULL);
+//    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], (NSString *)kCGImageSourceShouldCache, nil];
+//    CFDictionaryRef imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, (CFDictionaryRef)CFBridgingRetain(options));
+//    CFDictionaryRef exifDic = CFDictionaryGetValue(imageProperties, kCGImagePropertyExifDictionary);
+//    if (exifDic){
+//        NSString *timestamp = (NSString *)CFBridgingRelease(CFDictionaryGetValue(exifDic, kCGImagePropertyExifDateTimeOriginal));
+//        if (timestamp){
+//            NSLog(@"timestamp: %@", timestamp);
+//            self.photo.whenTaken = timestamp;
+//        } else {
+//            NSLog(@"timestamp not found in the exif dic %@", exifDic);
+//        }
+//    } else {
+//        NSLog(@"exifDic nil for imageProperties %@",imageProperties);
+//    }
+//    CFRelease(imageProperties);
+//}
 
 -(void)presentNoCameraAlert {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"No camera available on device" preferredStyle:UIAlertControllerStyleAlert];
@@ -87,8 +120,6 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.image = info[UIImagePickerControllerOriginalImage];
     [self.imageView setImage:self.image];
-    [self storeToDirectorySelectedImage:self.image];
-    [self storePhotoFromImagePath];
     [picker dismissViewControllerAnimated:true completion:nil];
 }
 
@@ -116,8 +147,18 @@
     [self presentViewController:picker animated:true completion:nil];
 }
 
-- (IBAction)onDismissButtonPressed:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+- (IBAction)onUploadButtonPress:(UIBarButtonItem *)sender {
+
+    [self storeToDirectorySelectedImage:self.image];
+    [self storePhotoFromImagePath];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if (sender == self.navigationItem.backBarButtonItem) {
+        ProfileViewController *profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
+        [self.navigationController pushViewController:profileVC animated:true];
+        self.photos = profileVC.photos;
+    }
 }
 
 

@@ -2,7 +2,7 @@
 //  User.m
 //  Instagram2.0
 //
-//  Created by Rachel Schneebaum on 8/12/15.
+//  Created by Rachel Schneebaum on 8/14/15.
 //  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
@@ -16,10 +16,11 @@
 @dynamic firstName;
 @dynamic lastName;
 @dynamic password;
+@dynamic profilePic;
 @dynamic textDescription;
 @dynamic username;
-@dynamic profilePic;
 @dynamic friends;
 @dynamic userPhotos;
+@dynamic likedPhotos;
 
 @end

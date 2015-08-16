@@ -6,8 +6,13 @@
 //  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
+#import "Photo.h"
 #import <UIKit/UIKit.h>
 
 @interface CommentTableViewController : UITableViewController
+
+@property NSManagedObjectContext *moc;
+@property NSArray *photos;
+@property Photo *photo;
 
 @end

@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface SearchViewController : UIViewController
 
 @property NSManagedObjectContext *moc;
+@property NSArray *photos;
+@property User *user;
 
 @end

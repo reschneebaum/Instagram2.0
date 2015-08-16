@@ -7,9 +7,16 @@
 //
 
 #import "DetailImageViewController.h"
+#import "ProfileViewController.h"
+#import "NewsFeedViewController.h"
+#import "CameraViewController.h"
+#import "SearchViewController.h"
+#import "FriendProfileViewController.h"
+#import "CommentTableViewController.h"
 #import "Photo.h"
+
 @interface DetailImageViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+
 @property Photo *photo;
 
 @end
@@ -19,45 +26,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
-//- (IBAction)onCreateAccountButtonPressed:(UIButton *)sender {
-//    NSString *alertViewText = [[NSString alloc] initWithFormat:@"Are you sure you want to delete this image?"];
-//    UIAlertView *alert = [[UIAlertView alloc]
-//                                 initWithTitle:@"Delete Image?"
-//                                 message:alertViewText delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
-//    [alert show];
-
-//}
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
-//    if ([buttonTitle isEqualToString:@"Delete"]) {
-//       NSMutableArray *arrayOfImages = [NSMutableArray arrayWithCapacity:10];
-//
-//        [arrayOfImages removeObject:[NSString stringWithFormat:@"%@", self.photo]];
-//
-//        }
-//}
 
 
 
+#pragma mark - set up toolbar button segues
+#pragma mark -
 
+- (IBAction)onHomeButtonPressed:(UIBarButtonItem *)sender {
+    NewsFeedViewController *NewsVC =[self.storyboard instantiateViewControllerWithIdentifier:@"NewsVC"];
+    [self.navigationController pushViewController:NewsVC animated:true];
+}
 
+- (IBAction)onSearchButtonPressed:(UIBarButtonItem *)sender {
+    SearchViewController *searchVC =[self.storyboard instantiateViewControllerWithIdentifier:@"searchVC"];
+    [self.navigationController pushViewController:searchVC animated:true];
+}
 
+- (IBAction)onCameraButtonPressed:(UIBarButtonItem *)sender {
+    CameraViewController *cameraVC =[self.storyboard instantiateViewControllerWithIdentifier:@"cameraVC"];
+    [self.navigationController pushViewController:cameraVC animated:true];
+}
 
+- (IBAction)onLikesButtonPressed:(UIBarButtonItem *)sender {
+    // note: make sure this passes only liked photos array
+    NewsFeedViewController *newsVC =[self.storyboard instantiateViewControllerWithIdentifier:@"NewsVC"];
+    [self.navigationController pushViewController:newsVC animated:true];
+}
 
-
-
-
-
-
-
-
-
+- (IBAction)onProfileButtonPressed:(UIBarButtonItem *)sender {
+    ProfileViewController *profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
+    [self.navigationController pushViewController:profileVC animated:true];
+}
 
 
 
 
-
-
-
-
-                            @end
+@end

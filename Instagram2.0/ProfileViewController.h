@@ -13,8 +13,9 @@
 @interface ProfileViewController : UIViewController
 
 @property User *user;
-@property NSArray *users;
+@property NSMutableArray *users;
 @property NSManagedObjectContext *moc;
 @property Photo *photo;
+@property NSArray *photos;
 
 @end

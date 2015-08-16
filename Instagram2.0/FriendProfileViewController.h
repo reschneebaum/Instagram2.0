@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 Rachel Schneebaum. All rights reserved.
 //
 
+#import "User.h"
 #import <UIKit/UIKit.h>
 
 @interface FriendProfileViewController : UIViewController
 
 @property NSManagedObjectContext *moc;
+@property User *user;
 
 @end
